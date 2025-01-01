@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>jpa-practise</module>
-        <module>vavr-practise</module>
+        <module>lambda-practise</module>
     </modules>
 
     <parent>

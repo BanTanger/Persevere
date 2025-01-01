@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jpa-practise" />
-        <module name="vavr-practise" />
+        <module name="lambda-practise" />
         <module name="querydsl-demo" />
       </profile>
     </annotationProcessing>
@@ -15,9 +15,9 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="jpa-practise" options="-parameters" />
+      <module name="lambda-practise" options="-parameters" />
       <module name="persevere" options="" />
       <module name="querydsl-demo" options="-parameters" />
-      <module name="vavr-practise" options="-parameters" />
     </option>
   </component>
 </project>
