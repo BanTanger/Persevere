@@ -56,6 +56,7 @@ public class UserService implements IUserService {
 
     @Override
     public void saveWithThreadBatch(List<UserEntity> all) {
+        // 对单个 connection 做事务提交
         try {
             transactionExecuteManager.begin();
             List<List<UserEntity>> lists = averageAssign(all, 5);
