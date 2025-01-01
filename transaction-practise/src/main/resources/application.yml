@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3306/jpa
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    generateDdl: true   # 自动更新数据库表结构
+#    show-sql: true        # simple show sql
+#    properties:
+#      hibernate:
+#        format_sql: true

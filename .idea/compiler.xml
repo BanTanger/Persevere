@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jpa-practise" />
         <module name="lambda-practise" />
+        <module name="jpa-practise" />
+        <module name="transaction-practise" />
         <module name="querydsl-demo" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="lambda-practise" options="-parameters" />
       <module name="persevere" options="" />
       <module name="querydsl-demo" options="-parameters" />
+      <module name="transaction-practise" options="-parameters" />
     </option>
   </component>
 </project>
