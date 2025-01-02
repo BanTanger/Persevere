@@ -79,8 +79,6 @@ public class UserService implements IUserService {
                             throw new RuntimeException("模拟异常");
                         }
                         repository.saveAll(list);
-                    } catch (Exception e) {
-                        transactionExecuteManager.rollback();
                     } finally {
                         countDownLatch.countDown();
                     }
