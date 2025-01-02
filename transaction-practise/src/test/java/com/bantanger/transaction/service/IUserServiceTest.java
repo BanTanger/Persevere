@@ -45,6 +45,7 @@ class IUserServiceTest {
         }
         userService.saveWithThreadBatch(all);
         System.out.println("end = " + (long) userRepository.findAll().size());
+
     }
 
 }
