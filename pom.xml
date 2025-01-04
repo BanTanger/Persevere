@@ -12,6 +12,7 @@
         <module>jpa-practise</module>
         <module>lambda-practise</module>
         <module>transaction-practise</module>
+        <module>elegant-practise</module>
     </modules>
 
     <parent>
