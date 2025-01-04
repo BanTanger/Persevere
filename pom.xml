@@ -13,6 +13,7 @@
         <module>lambda-practise</module>
         <module>transaction-practise</module>
         <module>elegant-practise</module>
+        <module>persevere-commons</module>
     </modules>
 
     <parent>

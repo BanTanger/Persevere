@@ -6,8 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="elegant-practise" />
         <module name="lambda-practise" />
         <module name="jpa-practise" />
+        <module name="persevere-commons" />
         <module name="transaction-practise" />
         <module name="querydsl-demo" />
       </profile>
@@ -15,9 +17,11 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="elegant-practise" options="-parameters" />
       <module name="jpa-practise" options="-parameters" />
       <module name="lambda-practise" options="-parameters" />
       <module name="persevere" options="" />
+      <module name="persevere-commons" options="-parameters" />
       <module name="querydsl-demo" options="-parameters" />
       <module name="transaction-practise" options="-parameters" />
     </option>

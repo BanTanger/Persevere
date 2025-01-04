@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jpa-practise.iml" filepath="$PROJECT_DIR$/jpa-practise.iml" />
       <module fileurl="file://$PROJECT_DIR$/querydsl-demo.iml" filepath="$PROJECT_DIR$/querydsl-demo.iml" />
     </modules>
   </component>
