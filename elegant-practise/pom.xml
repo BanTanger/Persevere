@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>com.bantanger.commons</groupId>
-            <artifactId>presever-commons</artifactId>
+            <artifactId>persevere-commons</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

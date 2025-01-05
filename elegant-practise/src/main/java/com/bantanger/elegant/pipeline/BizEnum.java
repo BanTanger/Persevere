@@ -8,7 +8,7 @@ import com.bantanger.commons.constants.BaseEnum;
  * @create 2025/1/4
  */
 public enum BizEnum implements BaseEnum<BizEnum> {
-    TRAFFIC_EVENT(1, "业务1"),
+    ORDER_EVENT(1, "下单业务"),
     METRIC_EVENT(2, "业务2"),
     SIGNAL_EVENT(3, "业务3"),
 

@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+filters:
+  order:
+    configs:
+      YW1:
+        - OrderLogSaveFilter
+        - UserValidFilter
+        - UserRiskFilter
+
