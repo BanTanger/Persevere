@@ -1,4 +1,4 @@
-package com.bantanger.elegant.order;
+package com.bantanger.elegant.user;
 
 import com.bantanger.elegant.user.UserCreditType;
 import com.bantanger.elegant.user.UserLevelType;

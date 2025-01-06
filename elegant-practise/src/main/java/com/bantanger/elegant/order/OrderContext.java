@@ -22,7 +22,7 @@ public class OrderContext extends AbstractEventContext {
     /**
      * ================// 编程模型 //====================
      */
-    private UserModel userModel;
+    private OrderModel orderModel;
 
     public OrderContext(BizEnum bizEnum, FilterSelector selector) {
         super(bizEnum, selector);

@@ -1,7 +1,7 @@
 package com.bantanger.elegant.filters;
 
 import com.bantanger.elegant.order.OrderContext;
-import com.bantanger.elegant.order.UserModel;
+import com.bantanger.elegant.user.UserModel;
 import com.bantanger.elegant.pipeline.AbstractEventFilter;
 import com.bantanger.elegant.service.facade.IOrderPipelineFacadeService;
 import com.bantanger.elegant.service.facade.IUserFacadeService;

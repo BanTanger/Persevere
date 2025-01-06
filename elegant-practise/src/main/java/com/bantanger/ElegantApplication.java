@@ -1,7 +1,9 @@
 package com.bantanger;
 
+import com.bantanger.elegant.service.IOrderModelHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.plugin.core.config.EnablePluginRegistries;
 
 /**
  * @author chensongmin
@@ -9,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @create 2025/1/4
  */
 @SpringBootApplication
+@EnablePluginRegistries(value = {IOrderModelHandler.class})
 public class ElegantApplication {
 
     public static void main(String[] args) {
