@@ -14,6 +14,7 @@
         <module>transaction-practise</module>
         <module>elegant-practise</module>
         <module>persevere-commons</module>
+        <module>codegen-plugin</module>
     </modules>
 
     <parent>
@@ -28,6 +29,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <querydsl.version>5.0.0</querydsl.version>
         <spring.boot.version>3.2.0</spring.boot.version>
+        <spring-boot-maven-verison>2.4.6</spring-boot-maven-verison>
     </properties>
 
     <dependencies>
@@ -90,25 +92,23 @@
 
     </dependencies>
 
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>com.mysema.maven</groupId>-->
-<!--                <artifactId>apt-maven-plugin</artifactId>-->
-<!--                <version>1.1.3</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>process</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <outputDirectory>target/generated-sources</outputDirectory>-->
-<!--                            <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-maven-verison}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

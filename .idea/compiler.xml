@@ -6,22 +6,35 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="elegant-practise" />
         <module name="lambda-practise" />
+        <module name="codegen-apt" />
+        <module name="transaction-practise" />
+        <module name="elegant-practise" />
         <module name="jpa-practise" />
         <module name="persevere-commons" />
-        <module name="transaction-practise" />
         <module name="querydsl-demo" />
+      </profile>
+      <profile name="Annotation profile for persevere" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/../../apache-maven-3.6.1/maven-repo/com/bantanger/codegen/codegen-apt/1.0-SNAPSHOT/codegen-apt-1.0-SNAPSHOT.jar" />
+        </processorPath>
+        <module name="codegen-test" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="codegen-apt" options="-parameters -Xlint:unchecked" />
+      <module name="codegen-plugin" options="" />
+      <module name="codegen-test" options="-parameters" />
       <module name="elegant-practise" options="-parameters" />
       <module name="jpa-practise" options="-parameters" />
       <module name="lambda-practise" options="-parameters" />
       <module name="persevere" options="" />
-      <module name="persevere-commons" options="-parameters" />
+      <module name="persevere-commons" options="-parameters -Xlint:unchecked" />
       <module name="querydsl-demo" options="-parameters" />
       <module name="transaction-practise" options="-parameters" />
     </option>
