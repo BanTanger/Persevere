@@ -7,6 +7,7 @@ import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeSpec.Builder;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.lang.annotation.Annotation;
 import java.util.Objects;
 import java.util.Set;
@@ -14,7 +15,10 @@ import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
@@ -46,16 +50,16 @@ public class DtoCodeGenProcessor extends BaseCodeGenProcessor {
     Builder builder = TypeSpec.classBuilder(className)
 //        .superclass(AbstractBaseJpaVO.class)
         .addModifiers(Modifier.PUBLIC)
-//        .addAnnotation(Schema.class)
+        .addAnnotation(Schema.class)
         .addAnnotation(Getter.class)
         .addAnnotation(Setter.class);
-    addSetterAndGetterMethod(builder, fields);
+    addFields(builder, fields);
     // 生成构造方法，指定参数名和访问类型
     MethodSpec.Builder constructorSpecBuilder = MethodSpec.constructorBuilder()
         .addParameter(TypeName.get(typeElement.asType()), "source")
         .addModifiers(Modifier.PUBLIC);
     // 生成构造方法的代码语句
-    constructorSpecBuilder.addStatement("super(source)");
+//    constructorSpecBuilder.addStatement("super(source)");
     fields.forEach(f -> {
       // $L 占位符，会替换为字段名
       constructorSpecBuilder.addStatement("this.set$L(source.get$L())", getFieldDefaultName(f),
@@ -67,11 +71,11 @@ public class DtoCodeGenProcessor extends BaseCodeGenProcessor {
     builder.addMethod(constructorSpecBuilder.build());
     String packageName = generatePackage(typeElement);
     // 生成代码到 target 目录
-//    genJavaFile(packageName, builder);
-//    genJavaFile(packageName, getSourceTypeWithConstruct(typeElement,sourceClassName, packageName, className));
+    genJavaFile(packageName, builder);
+    genJavaFile(packageName, getSourceTypeWithConstruct(typeElement, sourceClassName, packageName, className));
 
     // 生成代码到 Java 目录下
-    genJavaSourceFile(packageName,
-        typeElement.getAnnotation(GenDto.class).sourcePath(), builder);
+//    genJavaSourceFile(packageName,
+//        typeElement.getAnnotation(GenDto.class).sourcePath(), builder);
   }
 }

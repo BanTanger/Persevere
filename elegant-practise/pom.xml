@@ -18,7 +18,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.bantanger.commons</groupId>
+            <groupId>com.bantanger</groupId>
             <artifactId>persevere-commons</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
