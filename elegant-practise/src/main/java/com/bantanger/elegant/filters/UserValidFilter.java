@@ -30,7 +30,7 @@ public class UserValidFilter extends AbstractEventFilter<OrderContext> {
         user.ifPresent(s -> {
             log.info("业务={}, 鉴权用户 userId={} 合法性，结果：用户存在", context.getBizCode(), s.getId());
             // 存入用户编程模型上下文
-            context.setUserModel(buildUserModel(s));
+            context.getOrderModel().setUserModel(buildUserModel(s));
         });
     }
 

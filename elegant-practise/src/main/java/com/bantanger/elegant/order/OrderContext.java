@@ -26,6 +26,7 @@ public class OrderContext extends AbstractEventContext {
 
     public OrderContext(BizEnum bizEnum, FilterSelector selector) {
         super(bizEnum, selector);
+        orderModel = new OrderModel();
     }
 
     @Override

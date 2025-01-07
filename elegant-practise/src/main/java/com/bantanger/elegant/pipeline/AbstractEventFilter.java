@@ -13,7 +13,6 @@ public abstract class AbstractEventFilter<T extends EventContext> implements Eve
 
     @Override
     public void doFilter(T context, EventFilterChain<T> chain) {
-        log.info("业务模块：{}, filter 逻辑处理...", context.getBizCode());
         if (context.getFilterSelector().matchFilter(this.getClass().getSimpleName())) {
             handle(context);
         }

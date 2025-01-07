@@ -1,11 +1,21 @@
 server:
   port: 8080
 
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/jpa
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    generateDdl: true   # 自动更新数据库表结构
+
 filters:
   order:
     configs:
       YW1:
-        - OrderLogSaveFilter
         - UserValidFilter
+        - OrderLogSaveFilter
         - UserRiskFilter
 

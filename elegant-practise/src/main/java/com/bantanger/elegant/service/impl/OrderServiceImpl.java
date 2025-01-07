@@ -10,6 +10,7 @@ import com.bantanger.elegant.selector.OrderFilterSelectorFactory;
 import com.bantanger.elegant.service.IOrderModelHandler;
 import com.bantanger.elegant.service.IOrderService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.plugin.core.PluginRegistry;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
  * @create 2025/1/5
  */
 @SuppressWarnings("unchecked")
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderServiceImpl implements IOrderService {
@@ -30,11 +32,16 @@ public class OrderServiceImpl implements IOrderService {
 
     @Override
     public void handleOrder(OrderRequest orderRequest) {
-        OrderContext orderContext = new OrderContext(BizEnum.METRIC_EVENT,
+        OrderContext orderContext = new OrderContext(BizEnum.ORDER_EVENT,
                 envBasedFilterSelectorFactory.getFilterSelector(orderRequest));
         orderContext.setOrderRequest(orderRequest);
         // 通用业务逻辑处理
-        orderPipeline.getFilterChain().handle(orderContext);
+        try {
+            orderPipeline.getFilterChain().handle(orderContext);
+        } catch (Exception e) {
+            log.error("下单失败", e);
+            return ;
+        }
         // 业务扩展点实现
         OrderModel orderModel = orderContext.getOrderModel();
         pluginRegistry.getPluginsFor(orderModel)

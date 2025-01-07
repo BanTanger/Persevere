@@ -7,6 +7,6 @@ package com.bantanger.elegant.service.facade;
  */
 public interface IRiskFacadeService {
 
-    boolean isRickUser(String userId);
+    boolean isRickUser(Long userId);
 
 }

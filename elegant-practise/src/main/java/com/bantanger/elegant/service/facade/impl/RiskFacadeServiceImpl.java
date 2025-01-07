@@ -16,10 +16,12 @@ public class RiskFacadeServiceImpl implements IRiskFacadeService {
     // 模拟 RPC 调用
     // private final Rpc<RiskService> riskServiceRpc;
     @Override
-    public boolean isRickUser(String userId) {
+    public boolean isRickUser(Long userId) {
         // return riskServiceRpc.isRickUser(userId);
 
         // 这里直接模拟非风控用户了
-        return false;
+//        return false;
+        // 模拟风控用户
+        return true;
     }
 }

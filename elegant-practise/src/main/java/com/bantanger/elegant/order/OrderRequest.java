@@ -1,8 +1,10 @@
 package com.bantanger.elegant.order;
 
 import com.bantanger.commons.annotation.FieldDesc;
-import com.bantanger.elegant.pipeline.BizEnum;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author chensongmin
@@ -10,6 +12,9 @@ import lombok.Data;
  * @create 2025/1/5
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class OrderRequest {
     @FieldDesc(name = "业务编码")
     private BizLineEnum bizCode;

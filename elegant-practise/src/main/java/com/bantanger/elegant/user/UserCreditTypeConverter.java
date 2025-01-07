@@ -1,9 +1,20 @@
 package com.bantanger.elegant.user;
 
+import jakarta.persistence.AttributeConverter;
+
 /**
  * @author chensongmin
  * @description
  * @create 2025/1/5
  */
-public class UserCreditTypeConverter {
+public class UserCreditTypeConverter implements AttributeConverter<UserCreditType, Integer> {
+    @Override
+    public Integer convertToDatabaseColumn(UserCreditType userCreditType) {
+        return userCreditType.getCode();
+    }
+
+    @Override
+    public UserCreditType convertToEntityAttribute(Integer code) {
+        return UserCreditType.of(code).orElse(null);
+    }
 }
