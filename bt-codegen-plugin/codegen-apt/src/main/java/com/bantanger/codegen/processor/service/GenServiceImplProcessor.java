@@ -121,8 +121,8 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                             .execute();
                             """,
                         typeElement, classFieldName, EntityOperations.class, repositoryFieldName,
-                        ClassName.get(nameContext.getMapperPackageName(),
-                            nameContext.getMapperClassName()))
+                        ClassName.get(nameContext.getMapperEntityPackageName(),
+                            nameContext.getMapperEntityClassName()))
                 )
                 .addCode(
                     CodeBlock.of("return $L.isPresent() ? $L.get().getId() : 0;", classFieldName,
@@ -151,8 +151,8 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                             $T.doUpdate($L)
                             .loadById(updater.getId())
                             .update(e -> updater.update$L(e))
-                            .execute();""",
-                        EntityOperations.class, repositoryFieldName, typeElement.getSimpleName())
+                            .execute();
+                            """, EntityOperations.class, repositoryFieldName, typeElement.getSimpleName())
                 )
                 .addJavadoc("update")
                 .addAnnotation(Override.class)
@@ -170,8 +170,8 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                         $T.doUpdate($L)
                         .loadById(id)
                         .update(e -> e.valid())
-                        .execute();""",
-                    EntityOperations.class, repositoryFieldName)
+                        .execute();
+                        """, EntityOperations.class, repositoryFieldName)
             )
             .addJavadoc("valid")
             .addAnnotation(Override.class)
@@ -188,8 +188,8 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                         $T.doUpdate($L)
                         .loadById(id)
                         .update(e -> e.invalid())
-                        .execute();""",
-                    EntityOperations.class, repositoryFieldName)
+                        .execute();
+                        """, EntityOperations.class, repositoryFieldName)
             )
             .addJavadoc("invalid")
             .addAnnotation(Override.class)
@@ -240,15 +240,15 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                 .addCode(
                     CodeBlock.of("""
                             $T<$T> page = $L.findAll(booleanBuilder,
-                                    $T.of(query.getPage() - 1, query.getPageSize(),\s
-                                    $T.by($T.DESC, "createdAt")));""",
-                        Page.class, typeElement,
+                                    $T.of(query.getPage() - 1, query.getPageSize(),
+                                    $T.by($T.DESC, "createdAt")));
+                            """, Page.class, typeElement,
                         repositoryFieldName,
                         PageRequest.class, Sort.class, Direction.class)
                 )
                 .addCode(
                     CodeBlock.of("""
-                            return new $T<>(page.getContent().stream().map(entity -> new $T(entity))
+                            return new $T<>(page.getContent().stream().map($T::new)
                                     .collect($T.toList()), page.getPageable(), page.getTotalElements());
                             """, PageImpl.class,
                         ClassName.get(nameContext.getVoPackageName(), nameContext.getVoClassName()),

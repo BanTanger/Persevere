@@ -52,7 +52,7 @@ public class GenControllerProcessor extends BaseCodeGenProcessor {
             .addAnnotation(RestController.class)
             .addAnnotation(Slf4j.class)
             .addAnnotation(AnnotationSpec.builder(RequestMapping.class).addMember("value", "$S",
-                StringUtils.camel(typeElement.getSimpleName().toString()) + "/v1").build())
+                StringUtils.camel(typeElement.getSimpleName().toString()) + "/v1/").build())
             .addAnnotation(RequiredArgsConstructor.class)
             .addModifiers(Modifier.PUBLIC);
         String serviceFieldName =

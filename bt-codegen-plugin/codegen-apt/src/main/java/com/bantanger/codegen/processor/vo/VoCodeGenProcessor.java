@@ -53,7 +53,7 @@ public class VoCodeGenProcessor extends BaseCodeGenProcessor {
             .addParameter(TypeName.get(typeElement.asType()), "source")
             .addModifiers(Modifier.PUBLIC);
         constructorSpecBuilder.addStatement("super(source)");
-        fields.stream().forEach(f -> {
+        fields.forEach(f -> {
             constructorSpecBuilder.addStatement("this.set$L(source.get$L())",
                 getFieldDefaultName(f),
                 getFieldDefaultName(f));

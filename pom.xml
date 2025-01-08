@@ -13,6 +13,7 @@
         <module>bt-codegen-plugin</module>
         <module>bt-common-starters</module>
         <module>bt-practise</module>
+        <module>bt-system-center</module>
     </modules>
 
     <parent>
@@ -22,12 +23,13 @@
     </parent>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <querydsl.version>5.0.0</querydsl.version>
         <spring.boot.version>3.2.0</spring.boot.version>
         <spring-boot-maven-verison>2.4.6</spring-boot-maven-verison>
+        <mapstruct-version>1.4.2.Final</mapstruct-version>
     </properties>
 
     <dependencies>

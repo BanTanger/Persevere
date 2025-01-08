@@ -15,6 +15,8 @@ import com.bantanger.codegen.processor.controller.GenController;
 import com.bantanger.codegen.processor.controller.GenControllerProcessor;
 import com.bantanger.codegen.processor.creator.CreatorCodeGenProcessor;
 import com.bantanger.codegen.processor.creator.GenCreator;
+import com.bantanger.codegen.processor.mapper.GenEntityMapper;
+import com.bantanger.codegen.processor.mapper.GenEntityMapperProcessor;
 import com.bantanger.codegen.processor.mapper.GenMapper;
 import com.bantanger.codegen.processor.mapper.GenMapperProcessor;
 import com.bantanger.codegen.processor.query.GenQuery;
@@ -127,6 +129,7 @@ public abstract class BaseCodeGenProcessor implements CodeGenProcessor {
         String repositoryName =
             typeElement.getSimpleName() + GenRepositoryProcessor.REPOSITORY_SUFFIX;
         String mapperName = typeElement.getSimpleName() + GenMapperProcessor.SUFFIX;
+        String mapperEntityName = typeElement.getSimpleName() + GenEntityMapperProcessor.SUFFIX;
         String voName = typeElement.getSimpleName() + VoCodeGenProcessor.SUFFIX;
         String queryName = typeElement.getSimpleName() + GenQueryProcessor.QUERY_SUFFIX;
         String creatorName = typeElement.getSimpleName() + CreatorCodeGenProcessor.SUFFIX;
@@ -144,6 +147,7 @@ public abstract class BaseCodeGenProcessor implements CodeGenProcessor {
         context.setServiceClassName(serviceName);
         context.setRepositoryClassName(repositoryName);
         context.setMapperClassName(mapperName);
+        context.setMapperEntityClassName(mapperEntityName);
         context.setVoClassName(voName);
         context.setQueryClassName(queryName);
         context.setCreatorClassName(creatorName);
@@ -172,6 +176,9 @@ public abstract class BaseCodeGenProcessor implements CodeGenProcessor {
         });
         Optional.ofNullable(typeElement.getAnnotation(GenMapper.class)).ifPresent(anno -> {
             context.setMapperPackageName(anno.pkgName());
+        });
+        Optional.ofNullable(typeElement.getAnnotation(GenEntityMapper.class)).ifPresent(anno -> {
+            context.setMapperEntityPackageName(anno.pkgName());
         });
         Optional.ofNullable(typeElement.getAnnotation(GenService.class)).ifPresent(anno -> {
             context.setServicePackageName(anno.pkgName());
@@ -216,19 +223,6 @@ public abstract class BaseCodeGenProcessor implements CodeGenProcessor {
             }
         }
         return null;
-    }
-
-    public void addFields(TypeSpec.Builder builder,
-        Set<VariableElement> variableElements) {
-        for (VariableElement ve : variableElements) {
-            TypeName typeName = TypeName.get(ve.asType());
-            FieldSpec.Builder fieldSpec = FieldSpec
-                .builder(typeName, ve.getSimpleName().toString(), Modifier.PRIVATE)
-                .addAnnotation(AnnotationSpec.builder(Schema.class)
-                    .addMember("title", "$S", getFieldDesc(ve))
-                    .build());
-            builder.addField(fieldSpec.build());
-        }
     }
 
     public void addSetterAndGetterMethod(TypeSpec.Builder builder,
