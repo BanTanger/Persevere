@@ -9,12 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>jpa-practise</module>
-        <module>lambda-practise</module>
-        <module>transaction-practise</module>
-        <module>elegant-practise</module>
-        <module>persevere-commons</module>
-        <module>codegen-plugin</module>
+        <module>bt-common</module>
+        <module>bt-codegen-plugin</module>
+        <module>bt-common-starters</module>
+        <module>bt-practise</module>
     </modules>
 
     <parent>
