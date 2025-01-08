@@ -22,23 +22,15 @@ public final class StringUtils {
     }
 
     public static boolean containsNull(List<String> list) {
-        List<String> nullList = list.stream().filter(s -> Objects.isNull(s)).collect(Collectors.toList());
-        if (nullList.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        List<String> nullList = list.stream().filter(Objects::isNull).toList();
+        return !nullList.isEmpty();
     }
 
     public static boolean containsNull(String... list) {
         List<String> temp = Lists.newArrayList();
         Collections.addAll(temp, list);
-        List<String> nullList = temp.stream().filter(s -> Objects.isNull(s)).collect(Collectors.toList());
-        if (nullList.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        List<String> nullList = temp.stream().filter(Objects::isNull).toList();
+        return !nullList.isEmpty();
     }
 
 }
