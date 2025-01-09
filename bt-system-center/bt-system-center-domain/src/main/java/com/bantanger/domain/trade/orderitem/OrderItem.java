@@ -50,7 +50,7 @@ public class OrderItem extends BaseJpaAggregate {
     private Long orderId;
 
     @FieldDesc(name = "唯一流水号")
-    private Long flowId;
+    private Long flowNo;
 
     @FieldDesc(name = "真实金额")
     private BigDecimal realAmount;

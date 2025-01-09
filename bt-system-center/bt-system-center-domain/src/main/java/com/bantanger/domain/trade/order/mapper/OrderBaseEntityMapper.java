@@ -5,6 +5,7 @@ import com.bantanger.common.mapper.DateMapper;
 import com.bantanger.common.mapper.GenericEnumMapper;
 import com.bantanger.domain.trade.order.OrderBase;
 import com.bantanger.domain.trade.order.creator.OrderBaseCreator;
+import com.bantanger.domain.trade.order.domainservice.model.OrderCreateModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -18,4 +19,6 @@ public interface OrderBaseEntityMapper {
    OrderBaseEntityMapper INSTANCE = Mappers.getMapper(OrderBaseEntityMapper.class);
 
    OrderBase dtoToEntity(OrderBaseCreator dto);
+
+   OrderBase model2Entity(OrderCreateModel createModel);
 }

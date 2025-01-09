@@ -1,5 +1,7 @@
 package com.bantanger.domain.trade.order;
 
+import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.util.NumberUtil;
 import com.bantanger.codegen.processor.api.GenCreateRequest;
 import com.bantanger.codegen.processor.api.GenQueryRequest;
 import com.bantanger.codegen.processor.api.GenResponse;
@@ -20,10 +22,15 @@ import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.annotation.TypeConverter;
 import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.exception.BusinessException;
 import com.bantanger.domain.CodeValue;
 import com.bantanger.domain.CodeValueListConverter;
+import com.bantanger.domain.GenSourceConstants;
 import com.bantanger.domain.pay.PayItem;
 import com.bantanger.domain.pay.PayItemListConverter;
+import com.bantanger.domain.trade.order.domainservice.model.OrderCompleteModel;
+import com.bantanger.domain.trade.order.domainservice.model.OrderCreateModel;
+import com.bantanger.domain.trade.order.events.OrderEvents.OrderCreateEvent;
 import com.bantanger.domain.trade.order.model.enums.OrderState;
 import com.bantanger.domain.trade.order.model.enums.OrderStateConverter;
 import com.bantanger.domain.trade.order.model.enums.OrderType;
@@ -32,7 +39,7 @@ import com.bantanger.domain.user.AccountType;
 import com.bantanger.domain.user.AccountTypeConverter;
 import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
-import com.bantanger.domain.GenSourceConstants;
+import com.bantanger.types.enums.OrderErrorEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -41,7 +48,9 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import lombok.Data;
 
 /**
@@ -92,7 +101,7 @@ public class OrderBase extends BaseJpaAggregate {
     @QueryItem
     private OrderType orderType;
 
-    @FieldDesc(name = "支付详情")
+    @FieldDesc(name = "支付详情(虚拟资产抵扣项)")
     @IgnoreCreator
     @IgnoreUpdater
     @Convert(converter = PayItemListConverter.class)
@@ -130,9 +139,78 @@ public class OrderBase extends BaseJpaAggregate {
     @IgnoreCreator
     private ValidStatus validStatus;
 
-    public void init() {
+    /**
+     * 订单初始化
+     * @param createModel
+     */
+    public void init(OrderCreateModel createModel) {
         setValidStatus(ValidStatus.VALID);
-//        setInvoiceFlag(ValidStatus.INVALID);
+        setInvoiceFlag(ValidStatus.INVALID);
+
+        BigDecimal total = getTotalAmount();
+        // 有虚拟资产抵扣
+        if (!CollectionUtil.isEmpty(createModel.getPayItemList())) {
+            setPayItemList(createModel.getPayItemList());
+            BigDecimal hasPay = createModel.getPayItemList().stream()
+                .map(PayItem::getPayInfo)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+            if (NumberUtil.isGreater(hasPay, total)) {
+                throw new BusinessException(OrderErrorEnum.PAY_TOO_BIG);
+            } else if (NumberUtil.equals(hasPay, total)) {
+                setOrderState(OrderState.PAY_SUCCESS);
+                setWaitPay(BigDecimal.ZERO);
+            } else {
+                setOrderState(OrderState.WAIT_PAY);
+                setWaitPay(NumberUtil.sub(total, hasPay));
+            }
+        } else { // 没有虚拟资产抵扣
+            setPayItemList(Collections.EMPTY_LIST);
+            // 无需支付（在交易模块可能已经减免或优惠抵扣了）
+            if (NumberUtil.equals(BigDecimal.ZERO, total)) {
+                setOrderState(OrderState.PAY_SUCCESS);
+            } else { // 有待支付金额
+                setWaitPay(total);
+                setOrderState(OrderState.WAIT_PAY);
+            }
+        }
+        // 发送领域事件
+        registerEvent(new OrderCreateEvent(this, createModel));
+    }
+
+    /**
+     * 订单完成
+     * @param completeModel
+     */
+    public void complete(OrderCompleteModel completeModel) {
+        if (!Objects.equals(OrderState.WAIT_PAY, getOrderState())) {
+            throw new BusinessException(OrderErrorEnum.ORDER_NOT_WAIT_PAY);
+        }
+        if (CollectionUtil.isEmpty(completeModel.getPayItemList())) {
+            throw new BusinessException(OrderErrorEnum.PAY_LIST_IS_NULL);
+        }
+        // 计算需支付金额
+        BigDecimal hasPay = completeModel.getPayItemList().stream()
+            .map(PayItem::getPayInfo)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+        if (!NumberUtil.equals(hasPay, getWaitPay())) {
+            throw new BusinessException(OrderErrorEnum.PAY_AMOUNT_NOT_EQUAL_WAIT_PAY);
+        }
+        setPayTime(completeModel.getPayTime());
+        List<PayItem> payItemList = getPayItemList();
+        payItemList.addAll(completeModel.getPayItemList());
+        setPayItemList(payItemList);
+        setOrderState(OrderState.PAY_SUCCESS);
+    }
+
+    /**
+     * 取消订单
+     */
+    public void cancel() {
+        // 校验订单状态, 只有待支付才能取消订单
+        if (!Objects.equals(OrderState.WAIT_PAY, getOrderState())) {
+            throw new BusinessException(OrderErrorEnum.ORDER_NOT_WAIT_PAY);
+        }
+        setOrderState(OrderState.ABANDON);
     }
 
     public void valid() {
