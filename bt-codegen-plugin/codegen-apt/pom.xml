@@ -20,6 +20,7 @@
     </properties>
     <dependencies>
         <!-- 生成 SPI -->
+        <!-- https://mvnrepository.com/artifact/com.google.auto.service/auto-service -->
         <dependency>
             <groupId>com.google.auto.service</groupId>
             <artifactId>auto-service</artifactId>

@@ -2,7 +2,7 @@ package com.bantanger.domain.trade.order.events;
 
 import com.bantanger.domain.trade.order.events.OrderEvents.OrderCreateEvent;
 import com.bantanger.domain.trade.orderitem.creator.OrderItemCreator;
-import com.bantanger.domain.trade.orderitem.mapper.OrderItemEntityMapperImpl;
+import com.bantanger.domain.trade.orderitem.mapper.OrderItemMapper;
 import com.bantanger.domain.trade.orderitem.service.IOrderItemService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +31,7 @@ public class OrderEventProcessor {
         orderCreateEvent.orderCreateModel().getItemInfoList()
             .forEach(model -> {
                 // 创建订单项
-                OrderItemCreator creator = OrderItemEntityMapperImpl.INSTANCE.model2Creator(model);
+                OrderItemCreator creator = OrderItemMapper.INSTANCE.model2Creator(model);
                 creator.setOrderId(orderCreateEvent.orderBase().getId());
                 creator.setFlowNo(orderCreateEvent.orderBase().getFlowNo());
                 orderItemService.createOrderItem(creator);

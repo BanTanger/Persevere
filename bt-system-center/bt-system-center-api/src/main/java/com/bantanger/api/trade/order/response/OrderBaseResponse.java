@@ -3,10 +3,8 @@ package com.bantanger.api.trade.order.response;
 
 import com.bantanger.common.constants.ValidStatus;
 import com.bantanger.common.model.AbstractJpaResponse;
-import com.bantanger.domain.CodeValue;
-import com.bantanger.domain.pay.PayItem;
-import com.bantanger.domain.trade.order.model.enums.OrderState;
-import com.bantanger.domain.user.AccountType;
+import com.bantanger.common.model.CodeValue;
+import com.bantanger.order.common.pay.PayItem;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.lang.Integer;
 import java.lang.Long;
@@ -34,7 +32,7 @@ public class OrderBaseResponse extends AbstractJpaResponse {
    @Schema(
          title = "账号类型: 1-个人, 2-企业"
    )
-   private AccountType accountType;
+   private Integer accountType;
 
    @Schema(
          title = "订单类型: 1-普通订单, 2-秒杀订单"
@@ -42,7 +40,7 @@ public class OrderBaseResponse extends AbstractJpaResponse {
    private Integer orderType;
 
    @Schema(
-         title = "支付详情"
+         title = "支付详情(虚拟资产抵扣项)"
    )
    private List<PayItem> payItemList;
 
@@ -59,7 +57,7 @@ public class OrderBaseResponse extends AbstractJpaResponse {
    @Schema(
          title = "订单状态"
    )
-   private OrderState orderState;
+   private Integer orderState;
 
    @Schema(
          title = "订单附加信息"
@@ -100,11 +98,11 @@ public class OrderBaseResponse extends AbstractJpaResponse {
       this.accountId = accountId;
    }
 
-   public AccountType getAccountType() {
+   public Integer getAccountType() {
       return accountType;
    }
 
-   public void setAccountType(AccountType accountType) {
+   public void setAccountType(Integer accountType) {
       this.accountType = accountType;
    }
 
@@ -140,11 +138,11 @@ public class OrderBaseResponse extends AbstractJpaResponse {
       this.payTime = payTime;
    }
 
-   public OrderState getOrderState() {
+   public Integer getOrderState() {
       return orderState;
    }
 
-   public void setOrderState(OrderState orderState) {
+   public void setOrderState(Integer orderState) {
       this.orderState = orderState;
    }
 

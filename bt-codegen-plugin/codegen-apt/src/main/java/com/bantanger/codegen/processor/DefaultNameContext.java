@@ -30,10 +30,6 @@ public class DefaultNameContext {
 
     private String mapperClassName;
 
-    private String mapperEntityPackageName;
-
-    private String mapperEntityClassName;
-
     private String repositoryPackageName;
 
     private String repositoryClassName;

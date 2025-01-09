@@ -16,11 +16,10 @@
 
     <modules>
         <module>bt-system-center-api</module>
-        <module>bt-system-center-app</module>
         <module>bt-system-center-domain</module>
         <module>bt-system-center-trigger</module>
         <module>bt-system-center-infrastructure</module>
-        <module>bt-system-center-types</module>
+        <module>bt-pay-center-common</module>
     </modules>
 
 <!--    <repositories>-->

@@ -6,7 +6,7 @@ import com.bantanger.common.exception.BusinessException;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.domain.trade.orderitem.OrderItem;
 import com.bantanger.domain.trade.orderitem.creator.OrderItemCreator;
-import com.bantanger.domain.trade.orderitem.mapper.OrderItemEntityMapper;
+import com.bantanger.domain.trade.orderitem.mapper.OrderItemMapper;
 import com.bantanger.domain.trade.orderitem.query.OrderItemQuery;
 import com.bantanger.domain.trade.orderitem.repository.OrderItemRepository;
 import com.bantanger.domain.trade.orderitem.updater.OrderItemUpdater;
@@ -39,7 +39,7 @@ public class OrderItemServiceImpl implements IOrderItemService {
    @Override
    public Long createOrderItem(OrderItemCreator creator) {
       Optional<OrderItem> orderItem = EntityOperations.doCreate(orderItemRepository)
-      .create(() -> OrderItemEntityMapper.INSTANCE.dtoToEntity(creator))
+      .create(() -> OrderItemMapper.INSTANCE.dtoToEntity(creator))
       .update(e -> {})
       .execute();
       return orderItem.isPresent() ? orderItem.get().getId() : 0;

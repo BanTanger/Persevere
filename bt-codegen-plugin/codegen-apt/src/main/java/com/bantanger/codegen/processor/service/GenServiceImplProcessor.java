@@ -121,8 +121,8 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                             .execute();
                             """,
                         typeElement, classFieldName, EntityOperations.class, repositoryFieldName,
-                        ClassName.get(nameContext.getMapperEntityPackageName(),
-                            nameContext.getMapperEntityClassName()))
+                        ClassName.get(nameContext.getMapperPackageName(),
+                            nameContext.getMapperClassName()))
                 )
                 .addCode(
                     CodeBlock.of("return $L.isPresent() ? $L.get().getId() : 0;", classFieldName,

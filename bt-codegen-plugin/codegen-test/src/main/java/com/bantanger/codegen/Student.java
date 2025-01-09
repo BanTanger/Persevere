@@ -7,7 +7,6 @@ import com.bantanger.codegen.processor.api.GenUpdateRequest;
 import com.bantanger.codegen.processor.controller.GenController;
 import com.bantanger.codegen.processor.creator.GenCreator;
 import com.bantanger.codegen.processor.creator.IgnoreCreator;
-import com.bantanger.codegen.processor.mapper.GenEntityMapper;
 import com.bantanger.codegen.processor.mapper.GenMapper;
 import com.bantanger.codegen.processor.query.GenQuery;
 import com.bantanger.codegen.processor.repository.GenRepository;
@@ -37,7 +36,6 @@ import lombok.Data;
 @GenService(pkgName = "com.bantanger.codegen.service")
 @GenServiceImpl(pkgName = "com.bantanger.codegen.service")
 @GenQuery(pkgName = "com.bantanger.codegen.query")
-@GenEntityMapper(pkgName = "com.bantanger.codegen.mapper")
 @GenMapper(pkgName = "com.bantanger.codegen.mapper")
 @GenController(pkgName = "com.bantanger.codegen.controller")
 @GenCreateRequest(pkgName = "com.bantanger.codegen.request")

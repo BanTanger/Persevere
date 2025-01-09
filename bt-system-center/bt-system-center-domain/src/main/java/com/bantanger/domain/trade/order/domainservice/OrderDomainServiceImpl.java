@@ -9,7 +9,6 @@ import com.bantanger.domain.trade.order.domainservice.model.OrderCompleteModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderCreateModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderItemModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderReviseModel;
-import com.bantanger.domain.trade.order.mapper.OrderBaseEntityMapper;
 import com.bantanger.domain.trade.order.repository.IFlowNoFacade;
 import com.bantanger.domain.trade.order.repository.OrderBaseRepository;
 import com.bantanger.jpa.support.EntityOperations;
@@ -42,7 +41,7 @@ public class OrderDomainServiceImpl implements IOrderDomainService {
         // 生成订单流水号
         Long nextId = flowNoFacade.getNextId();
 
-        OrderBase orderBase = OrderBaseEntityMapper.INSTANCE.model2Entity(orderCreateModel);
+        OrderBase orderBase = OrderBaseMapper.INSTANCE.model2Entity(orderCreateModel);
         orderBase.setFlowNo(nextId);
         orderBase.setTotalAmount(itemTotal);
         EntityOperations.doCreate(orderBaseRepository)

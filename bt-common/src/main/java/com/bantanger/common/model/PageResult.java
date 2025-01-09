@@ -8,6 +8,7 @@ import lombok.Data;
  * @description
  * @date 2025/1/8
  */
+@SuppressWarnings("all")
 @Data
 public class PageResult<T> {
 

@@ -18,7 +18,7 @@ public class OrderItemResponse extends AbstractJpaResponse {
    @Schema(
          title = "唯一流水号"
    )
-   private Long flowId;
+   private Long flowNo;
 
    @Schema(
          title = "真实金额"
@@ -58,12 +58,12 @@ public class OrderItemResponse extends AbstractJpaResponse {
       this.orderId = orderId;
    }
 
-   public Long getFlowId() {
-      return flowId;
+   public Long getFlowNo() {
+      return flowNo;
    }
 
-   public void setFlowId(Long flowId) {
-      this.flowId = flowId;
+   public void setFlowNo(Long flowNo) {
+      this.flowNo = flowNo;
    }
 
    public BigDecimal getRealAmount() {

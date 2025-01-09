@@ -1,7 +1,7 @@
 package com.bantanger.domain.trade.order.domainservice.model;
 
 import com.bantanger.common.annotation.FieldDesc;
-import com.bantanger.domain.pay.PayItem;
+import com.bantanger.order.common.pay.PayItem;
 import java.time.Instant;
 import java.util.List;
 import lombok.Data;

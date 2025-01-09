@@ -50,6 +50,8 @@ public class GenMapperProcessor extends BaseCodeGenProcessor {
                 .build();
         typeSpecBuilder.addField(instance);
         DefaultNameContext nameContext = getNameContext(typeElement);
+        Optional<MethodSpec> dtoToEntityMethod = dtoToEntityMethod(typeElement, nameContext);
+        dtoToEntityMethod.ifPresent(typeSpecBuilder::addMethod);
         Optional<MethodSpec> request2UpdaterMethod = request2UpdaterMethod(nameContext);
         request2UpdaterMethod.ifPresent(typeSpecBuilder::addMethod);
         Optional<MethodSpec> request2DtoMethod = request2DtoMethod(nameContext);

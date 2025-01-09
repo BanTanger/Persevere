@@ -6,15 +6,13 @@ import com.bantanger.common.exception.BusinessException;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.domain.trade.order.OrderBase;
 import com.bantanger.domain.trade.order.creator.OrderBaseCreator;
-import com.bantanger.domain.trade.order.mapper.OrderBaseEntityMapper;
+import com.bantanger.domain.trade.order.mapper.OrderBaseMapper;
 import com.bantanger.domain.trade.order.query.OrderBaseQuery;
 import com.bantanger.domain.trade.order.repository.OrderBaseRepository;
 import com.bantanger.domain.trade.order.updater.OrderBaseUpdater;
 import com.bantanger.domain.trade.order.vo.OrderBaseVO;
 import com.bantanger.jpa.support.EntityOperations;
 import com.querydsl.core.BooleanBuilder;
-import java.lang.Long;
-import java.lang.Override;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +37,7 @@ public class OrderBaseServiceImpl implements IOrderBaseService {
    @Override
    public Long createOrderBase(OrderBaseCreator creator) {
       Optional<OrderBase> orderBase = EntityOperations.doCreate(orderBaseRepository)
-      .create(() -> OrderBaseEntityMapper.INSTANCE.dtoToEntity(creator))
+      .create(() -> OrderBaseMapper.INSTANCE.dtoToEntity(creator))
       .update(e -> {})
       .execute();
       return orderBase.isPresent() ? orderBase.get().getId() : 0;

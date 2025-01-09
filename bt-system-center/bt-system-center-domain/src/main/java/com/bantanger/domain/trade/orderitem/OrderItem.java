@@ -11,7 +11,6 @@ import com.bantanger.codegen.processor.api.GenQueryRequest;
 import com.bantanger.codegen.processor.api.GenResponse;
 import com.bantanger.codegen.processor.api.GenUpdateRequest;
 import com.bantanger.codegen.processor.creator.GenCreator;
-import com.bantanger.codegen.processor.mapper.GenEntityMapper;
 import com.bantanger.codegen.processor.mapper.GenMapper;
 import com.bantanger.codegen.processor.query.GenQuery;
 import com.bantanger.codegen.processor.repository.GenRepository;
@@ -20,7 +19,7 @@ import com.bantanger.codegen.processor.service.GenServiceImpl;
 import com.bantanger.codegen.processor.updater.GenUpdater;
 import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
-import com.bantanger.domain.GenSourceConstants;
+import com.bantanger.common.constants.GenSourceConstants;
 import com.bantanger.jpa.support.BaseJpaAggregate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -34,12 +33,11 @@ import lombok.Data;
 @GenService(pkgName = "com.bantanger.domain.trade.orderitem.service")
 @GenServiceImpl(pkgName = "com.bantanger.domain.trade.orderitem.service")
 @GenQuery(pkgName = "com.bantanger.domain.trade.orderitem.query")
-@GenEntityMapper(pkgName = "com.bantanger.domain.trade.orderitem.mapper")
+@GenMapper(pkgName = "com.bantanger.domain.trade.orderitem.mapper")
 @GenCreateRequest(pkgName = "com.bantanger.api.trade.orderitem.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
 @GenUpdateRequest(pkgName = "com.bantanger.api.trade.orderitem.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
 @GenQueryRequest(pkgName = "com.bantanger.api.trade.orderitem.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
 @GenResponse(pkgName = "com.bantanger.api.trade.orderitem.response", sourcePath = GenSourceConstants.GEN_API_SOURCE)
-@GenMapper(pkgName = "com.bantanger.trigger.mapper", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
 //@GenFeign(pkgName = "com.bantanger.api.service",sourcePath = GenSourceConstants.GEN_API_SOURCE,serverName =)
 @Entity
 @Table(name = "order_item")

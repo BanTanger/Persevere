@@ -9,7 +9,6 @@ import com.bantanger.codegen.processor.api.GenUpdateRequest;
 import com.bantanger.codegen.processor.controller.GenController;
 import com.bantanger.codegen.processor.creator.GenCreator;
 import com.bantanger.codegen.processor.creator.IgnoreCreator;
-import com.bantanger.codegen.processor.mapper.GenEntityMapper;
 import com.bantanger.codegen.processor.mapper.GenMapper;
 import com.bantanger.codegen.processor.query.GenQuery;
 import com.bantanger.codegen.processor.query.QueryItem;
@@ -21,13 +20,12 @@ import com.bantanger.codegen.processor.updater.IgnoreUpdater;
 import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.annotation.TypeConverter;
+import com.bantanger.common.constants.GenSourceConstants;
 import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.enumtype.OrderErrorType;
+import com.bantanger.common.enumtype.converter.CodeValueListConverter;
 import com.bantanger.common.exception.BusinessException;
-import com.bantanger.domain.CodeValue;
-import com.bantanger.domain.CodeValueListConverter;
-import com.bantanger.domain.GenSourceConstants;
-import com.bantanger.domain.pay.PayItem;
-import com.bantanger.domain.pay.PayItemListConverter;
+import com.bantanger.common.model.CodeValue;
 import com.bantanger.domain.trade.order.domainservice.model.OrderCompleteModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderCreateModel;
 import com.bantanger.domain.trade.order.events.OrderEvents.OrderCreateEvent;
@@ -39,7 +37,8 @@ import com.bantanger.domain.user.AccountType;
 import com.bantanger.domain.user.AccountTypeConverter;
 import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
-import com.bantanger.types.enums.OrderErrorEnum;
+import com.bantanger.order.common.pay.PayItem;
+import com.bantanger.order.common.pay.PayItemListConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -65,8 +64,7 @@ import lombok.Data;
 @GenService(pkgName = "com.bantanger.domain.trade.order.service")
 @GenServiceImpl(pkgName = "com.bantanger.domain.trade.order.service")
 @GenQuery(pkgName = "com.bantanger.domain.trade.order.query")
-@GenEntityMapper(pkgName = "com.bantanger.domain.trade.order.mapper")
-@GenMapper(pkgName = "com.bantanger.trigger.mapper", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
+@GenMapper(pkgName = "com.bantanger.domain.trade.order.mapper")
 @GenController(pkgName = "com.bantanger.trigger.http.trade.order", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
 @GenCreateRequest(pkgName = "com.bantanger.api.trade.order.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
 @GenUpdateRequest(pkgName = "com.bantanger.api.trade.order.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
@@ -91,6 +89,7 @@ public class OrderBase extends BaseJpaAggregate {
 
     @FieldDesc(name = "账号类型: 1-个人, 2-企业")
     @Convert(converter = AccountTypeConverter.class)
+    @TypeConverter(toTypeFullName = "java.lang.Integer")
     private AccountType accountType;
 
     // 根据不同的订单类型创建不同的状态机
@@ -119,6 +118,7 @@ public class OrderBase extends BaseJpaAggregate {
 
     @FieldDesc(name = "订单状态")
     @Convert(converter = OrderStateConverter.class)
+    @TypeConverter(toTypeFullName = "java.lang.Integer")
     @IgnoreUpdater
     @IgnoreCreator
     private OrderState orderState;
@@ -152,10 +152,10 @@ public class OrderBase extends BaseJpaAggregate {
         if (!CollectionUtil.isEmpty(createModel.getPayItemList())) {
             setPayItemList(createModel.getPayItemList());
             BigDecimal hasPay = createModel.getPayItemList().stream()
-                .map(PayItem::getPayInfo)
+                .map(PayItem::getMoney)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
             if (NumberUtil.isGreater(hasPay, total)) {
-                throw new BusinessException(OrderErrorEnum.PAY_TOO_BIG);
+                throw new BusinessException(OrderErrorType.PAY_TOO_BIG);
             } else if (NumberUtil.equals(hasPay, total)) {
                 setOrderState(OrderState.PAY_SUCCESS);
                 setWaitPay(BigDecimal.ZERO);
@@ -183,17 +183,17 @@ public class OrderBase extends BaseJpaAggregate {
      */
     public void complete(OrderCompleteModel completeModel) {
         if (!Objects.equals(OrderState.WAIT_PAY, getOrderState())) {
-            throw new BusinessException(OrderErrorEnum.ORDER_NOT_WAIT_PAY);
+            throw new BusinessException(OrderErrorType.ORDER_NOT_WAIT_PAY);
         }
         if (CollectionUtil.isEmpty(completeModel.getPayItemList())) {
-            throw new BusinessException(OrderErrorEnum.PAY_LIST_IS_NULL);
+            throw new BusinessException(OrderErrorType.PAY_LIST_IS_NULL);
         }
         // 计算需支付金额
         BigDecimal hasPay = completeModel.getPayItemList().stream()
-            .map(PayItem::getPayInfo)
+            .map(PayItem::getMoney)
             .reduce(BigDecimal.ZERO, BigDecimal::add);
         if (!NumberUtil.equals(hasPay, getWaitPay())) {
-            throw new BusinessException(OrderErrorEnum.PAY_AMOUNT_NOT_EQUAL_WAIT_PAY);
+            throw new BusinessException(OrderErrorType.PAY_AMOUNT_NOT_EQUAL_WAIT_PAY);
         }
         setPayTime(completeModel.getPayTime());
         List<PayItem> payItemList = getPayItemList();
@@ -208,7 +208,7 @@ public class OrderBase extends BaseJpaAggregate {
     public void cancel() {
         // 校验订单状态, 只有待支付才能取消订单
         if (!Objects.equals(OrderState.WAIT_PAY, getOrderState())) {
-            throw new BusinessException(OrderErrorEnum.ORDER_NOT_WAIT_PAY);
+            throw new BusinessException(OrderErrorType.ORDER_NOT_WAIT_PAY);
         }
         setOrderState(OrderState.ABANDON);
     }
