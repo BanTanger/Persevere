@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-@RequestMapping("student/v1")
+@RequestMapping("student/v1/")
 @RequiredArgsConstructor
 public class StudentController {
    private final IStudentService studentService;

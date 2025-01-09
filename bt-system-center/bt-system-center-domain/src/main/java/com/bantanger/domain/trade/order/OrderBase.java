@@ -1,4 +1,4 @@
-package com.bantanger.domain.trade.order.model;
+package com.bantanger.domain.trade.order;
 
 import com.bantanger.codegen.processor.api.GenCreateRequest;
 import com.bantanger.codegen.processor.api.GenQueryRequest;
@@ -57,7 +57,7 @@ import lombok.Data;
 @GenServiceImpl(pkgName = "com.bantanger.domain.trade.order.service")
 @GenQuery(pkgName = "com.bantanger.domain.trade.order.query")
 @GenEntityMapper(pkgName = "com.bantanger.domain.trade.order.mapper")
-@GenMapper(pkgName = "com.bantanger.trigger.mapper.trade.order", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
+@GenMapper(pkgName = "com.bantanger.trigger.mapper", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
 @GenController(pkgName = "com.bantanger.trigger.http.trade.order", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
 @GenCreateRequest(pkgName = "com.bantanger.api.trade.order.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
 @GenUpdateRequest(pkgName = "com.bantanger.api.trade.order.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
@@ -132,6 +132,7 @@ public class OrderBase extends BaseJpaAggregate {
 
     public void init() {
         setValidStatus(ValidStatus.VALID);
+//        setInvoiceFlag(ValidStatus.INVALID);
     }
 
     public void valid() {

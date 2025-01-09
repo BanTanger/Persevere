@@ -3,7 +3,7 @@ package com.bantanger.codegen.service;
 
 import com.bantanger.codegen.Student;
 import com.bantanger.codegen.creator.StudentCreator;
-import com.bantanger.codegen.mapper.StudentMapper;
+import com.bantanger.codegen.mapper.StudentEntityMapper;
 import com.bantanger.codegen.query.StudentQuery;
 import com.bantanger.codegen.repository.StudentRepository;
 import com.bantanger.codegen.updater.StudentUpdater;
@@ -39,7 +39,7 @@ public class StudentServiceImpl implements IStudentService {
    @Override
    public Long createStudent(StudentCreator creator) {
       Optional<Student> student = EntityOperations.doCreate(studentRepository)
-      .create(() -> StudentMapper.INSTANCE.dtoToEntity(creator))
+      .create(() -> StudentEntityMapper.INSTANCE.dtoToEntity(creator))
       .update(e -> e.init())
       .execute();
       return student.isPresent() ? student.get().getId() : 0;
@@ -94,8 +94,9 @@ public class StudentServiceImpl implements IStudentService {
    public Page<StudentVO> findByPage(PageRequestWrapper<StudentQuery> query) {
       BooleanBuilder booleanBuilder = new BooleanBuilder();
       Page<Student> page = studentRepository.findAll(booleanBuilder,
-              PageRequest.of(query.getPage() - 1, query.getPageSize(), 
-              Sort.by(Sort.Direction.DESC, "createdAt")));return new PageImpl<>(page.getContent().stream().map(entity -> new StudentVO(entity))
+              PageRequest.of(query.getPage() - 1, query.getPageSize(),
+              Sort.by(Sort.Direction.DESC, "createdAt")));
+      return new PageImpl<>(page.getContent().stream().map(StudentVO::new)
               .collect(Collectors.toList()), page.getPageable(), page.getTotalElements());
    }
 }
