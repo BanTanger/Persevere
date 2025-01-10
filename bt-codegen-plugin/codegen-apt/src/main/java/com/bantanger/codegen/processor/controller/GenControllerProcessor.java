@@ -304,27 +304,24 @@ public class GenControllerProcessor extends BaseCodeGenProcessor {
                             nameContext.getMapperClassName()))
                 )
                 .addCode(
-                    CodeBlock.of("""
-                        wrapper.setSorts(request.getSorts());
-                            wrapper.setPageSize(request.getPageSize());
-                            wrapper.setPage(request.getPage());
-                        """)
+                    CodeBlock.of("wrapper.setSorts(request.getSorts());\n" +
+                                 "    wrapper.setPageSize(request.getPageSize());\n" +
+                                 "    wrapper.setPage(request.getPage());\n")
                 )
                 .addCode(CodeBlock.of("$T<$T> page = $L.findByPage(wrapper);\n"
                     , Page.class,
                     ClassName.get(nameContext.getVoPackageName(), nameContext.getVoClassName()),
                     serviceFieldName))
                 .addCode(
-                    CodeBlock.of("""
-                            return $T.success(
-                                    $T.of(
-                                        page.getContent().stream()
-                                            .map(vo -> $T.INSTANCE.vo2CustomResponse(vo))
-                                            .collect($T.toList()),
-                                        page.getTotalElements(),
-                                        page.getSize(),
-                                        page.getNumber())
-                                );""", JsonObject.class, PageResult.class,
+                    CodeBlock.of("return $T.success(\n" +
+                                 "        $T.of(\n" +
+                                 "            page.getContent().stream()\n" +
+                                 "                .map(vo -> $T.INSTANCE.vo2CustomResponse(vo))\n" +
+                                 "                .collect($T.toList()),\n" +
+                                 "            page.getTotalElements(),\n" +
+                                 "            page.getSize(),\n" +
+                                 "            page.getNumber())\n" +
+                                 "    );", JsonObject.class, PageResult.class,
                         ClassName.get(nameContext.getMapperPackageName(),
                             nameContext.getMapperClassName()), Collectors.class)
                 )

@@ -1,7 +1,7 @@
 package com.bantanger.entity;
 
 import com.fasterxml.jackson.annotation.*;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.time.Instant;

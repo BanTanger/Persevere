@@ -1,6 +1,6 @@
 package com.bantanger.domain.user;
 
-import jakarta.persistence.AttributeConverter;
+import javax.persistence.AttributeConverter;
 
 /**
  * @author chensongmin

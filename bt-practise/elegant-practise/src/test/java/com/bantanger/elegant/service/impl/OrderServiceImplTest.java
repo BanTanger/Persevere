@@ -9,7 +9,7 @@ import com.bantanger.elegant.user.User;
 import com.bantanger.elegant.user.UserCreditType;
 import com.bantanger.elegant.user.UserLevelType;
 import com.bantanger.elegant.user.repository.UserRepository;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

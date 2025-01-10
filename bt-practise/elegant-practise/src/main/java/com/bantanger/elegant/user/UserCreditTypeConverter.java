@@ -1,6 +1,6 @@
 package com.bantanger.elegant.user;
 
-import jakarta.persistence.AttributeConverter;
+import javax.persistence.AttributeConverter;
 
 /**
  * @author chensongmin

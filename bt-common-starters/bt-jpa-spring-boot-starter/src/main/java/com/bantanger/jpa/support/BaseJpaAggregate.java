@@ -1,16 +1,16 @@
 package com.bantanger.jpa.support;
 
 import com.bantanger.jpa.converter.InstantLongConverter;
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Version;
 import java.time.Instant;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Version;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;

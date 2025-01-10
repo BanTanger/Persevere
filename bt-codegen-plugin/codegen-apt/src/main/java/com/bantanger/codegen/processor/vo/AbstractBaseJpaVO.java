@@ -11,8 +11,9 @@ import lombok.Data;
  */
 @Data
 public class AbstractBaseJpaVO {
+
     @Schema(
-            title = "数据版本"
+        title = "数据版本"
     )
     private int version;
     @Schema(
@@ -20,11 +21,11 @@ public class AbstractBaseJpaVO {
     )
     private Long id;
     @Schema(
-            title = "创建时间"
+        title = "创建时间"
     )
     private Long createdAt;
     @Schema(
-            title = "修改时间"
+        title = "修改时间"
     )
     private Long updatedAt;
 

@@ -1,10 +1,14 @@
 package com.bantanger.common.model;
 
+import lombok.Value;
+
 /**
  * @author chensongmin
  * @description
  * @date 2025/1/8
  */
-public record ValidateResult(String name, String message) {
-
+@Value
+public class ValidateResult {
+    String name;
+    String message;
 }

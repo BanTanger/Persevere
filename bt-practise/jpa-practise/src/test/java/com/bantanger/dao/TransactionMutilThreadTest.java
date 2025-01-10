@@ -2,7 +2,7 @@ package com.bantanger.dao;
 
 import com.bantanger.entity.UserInfo;
 import com.bantanger.repository.UserInfoRepository;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

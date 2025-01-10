@@ -6,7 +6,7 @@ import com.bantanger.elegant.filters.UserValidFilter;
 import com.bantanger.elegant.pipeline.EventFilter;
 import com.bantanger.elegant.pipeline.FilterChainPipeline;
 import com.bantanger.elegant.service.facade.IOrderPipelineFacadeService;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

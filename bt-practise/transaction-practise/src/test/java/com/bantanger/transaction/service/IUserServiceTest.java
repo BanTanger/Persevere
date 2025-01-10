@@ -3,7 +3,7 @@ package com.bantanger.transaction.service;
 import com.bantanger.TransactionApplication;
 import com.bantanger.transaction.entity.UserEntity;
 import com.bantanger.transaction.repository.UserRepository;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

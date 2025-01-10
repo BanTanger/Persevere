@@ -1,6 +1,6 @@
 package com.bantanger.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;

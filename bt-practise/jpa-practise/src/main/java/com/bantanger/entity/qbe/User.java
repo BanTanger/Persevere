@@ -2,7 +2,7 @@ package com.bantanger.entity.qbe;
 
 import com.bantanger.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.util.List;

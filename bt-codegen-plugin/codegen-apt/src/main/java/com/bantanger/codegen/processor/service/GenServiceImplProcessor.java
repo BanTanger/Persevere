@@ -114,12 +114,10 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                 .addModifiers(Modifier.PUBLIC)
                 .addCode(
                     CodeBlock.of(
-                        """
-                            Optional<$T> $L = $T.doCreate($L)
-                            .create(() -> $T.INSTANCE.dtoToEntity(creator))
-                            .update(e -> e.init())
-                            .execute();
-                            """,
+                        "Optional<$T> $L = $T.doCreate($L)\n" +
+                        ".create(() -> $T.INSTANCE.dtoToEntity(creator))\n" +
+                        ".update(e -> e.init())\n" +
+                        ".execute();\n",
                         typeElement, classFieldName, EntityOperations.class, repositoryFieldName,
                         ClassName.get(nameContext.getMapperPackageName(),
                             nameContext.getMapperClassName()))
@@ -147,12 +145,11 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                     "updater")
                 .addModifiers(Modifier.PUBLIC)
                 .addCode(
-                    CodeBlock.of("""
-                            $T.doUpdate($L)
-                            .loadById(updater.getId())
-                            .update(e -> updater.update$L(e))
-                            .execute();
-                            """, EntityOperations.class, repositoryFieldName, typeElement.getSimpleName())
+                    CodeBlock.of("$T.doUpdate($L)\n" +
+                                 ".loadById(updater.getId())\n" +
+                                 ".update(e -> updater.update$L(e))\n" +
+                                 ".execute();\n", EntityOperations.class, repositoryFieldName,
+                        typeElement.getSimpleName())
                 )
                 .addJavadoc("update")
                 .addAnnotation(Override.class)
@@ -166,12 +163,10 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
             .addParameter(Long.class, "id")
             .addModifiers(Modifier.PUBLIC)
             .addCode(
-                CodeBlock.of("""
-                        $T.doUpdate($L)
-                        .loadById(id)
-                        .update(e -> e.valid())
-                        .execute();
-                        """, EntityOperations.class, repositoryFieldName)
+                CodeBlock.of("$T.doUpdate($L)\n" +
+                             ".loadById(id)\n" +
+                             ".update(e -> e.valid())\n" +
+                             ".execute();\n", EntityOperations.class, repositoryFieldName)
             )
             .addJavadoc("valid")
             .addAnnotation(Override.class)
@@ -184,12 +179,10 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
             .addParameter(Long.class, "id")
             .addModifiers(Modifier.PUBLIC)
             .addCode(
-                CodeBlock.of("""
-                        $T.doUpdate($L)
-                        .loadById(id)
-                        .update(e -> e.invalid())
-                        .execute();
-                        """, EntityOperations.class, repositoryFieldName)
+                CodeBlock.of("$T.doUpdate($L)\n" +
+                             ".loadById(id)\n" +
+                             ".update(e -> e.invalid())\n" +
+                             ".execute();\n", EntityOperations.class, repositoryFieldName)
             )
             .addJavadoc("invalid")
             .addAnnotation(Override.class)
@@ -238,19 +231,17 @@ public class GenServiceImplProcessor extends BaseCodeGenProcessor {
                         BooleanBuilder.class)
                 )
                 .addCode(
-                    CodeBlock.of("""
-                            $T<$T> page = $L.findAll(booleanBuilder,
-                                    $T.of(query.getPage() - 1, query.getPageSize(),
-                                    $T.by($T.DESC, "createdAt")));
-                            """, Page.class, typeElement,
+                    CodeBlock.of("$T<$T> page = $L.findAll(booleanBuilder,\n" +
+                                 "        $T.of(query.getPage() - 1, query.getPageSize(),\n" +
+                                 "        $T.by($T.DESC, \"createdAt\")));\n", Page.class,
+                        typeElement,
                         repositoryFieldName,
                         PageRequest.class, Sort.class, Direction.class)
                 )
                 .addCode(
-                    CodeBlock.of("""
-                            return new $T<>(page.getContent().stream().map($T::new)
-                                    .collect($T.toList()), page.getPageable(), page.getTotalElements());
-                            """, PageImpl.class,
+                    CodeBlock.of("return new $T<>(page.getContent().stream().map($T::new)\n" +
+                                 "        .collect($T.toList()), page.getPageable(), page.getTotalElements());\n",
+                        PageImpl.class,
                         ClassName.get(nameContext.getVoPackageName(), nameContext.getVoClassName()),
                         Collectors.class)
                 )

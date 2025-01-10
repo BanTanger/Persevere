@@ -3,15 +3,10 @@ package com.bantanger.service;
 import com.bantanger.config.RetryConfiguration;
 import com.bantanger.entity.UserInfo;
 import com.bantanger.repository.UserInfoRepository;
-import jakarta.annotation.Resource;
-import jakarta.transaction.Transactional;
-import org.springframework.orm.ObjectOptimisticLockingFailureException;
-import org.springframework.retry.annotation.Backoff;
-import org.springframework.retry.annotation.EnableRetry;
-import org.springframework.retry.annotation.Retryable;
+import javax.annotation.Resource;
+import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
 
 /**
  * @author chensongmin
@@ -46,9 +41,9 @@ public class UserInfoService {
      * @param userId
      * @return
      */
-    @Retryable(value = ObjectOptimisticLockingFailureException.class,
-        maxAttemptsExpression = "${retry.maxAttempts}",
-        backoff = @Backoff(delayExpression = "${retry.maxDelay}", multiplier = 1.5, random = true))
+//    @Retryable(value = ObjectOptimisticLockingFailureException.class,
+//        maxAttemptsExpression = "${retry.maxAttempts}",
+//        backoff = @Backoff(delayExpression = "${retry.maxDelay}", multiplier = 1.5, random = true))
     @Transactional
     public UserInfo calculate(Long userId) {
         UserInfo userInfo = userInfoRepository.getOne(userId);

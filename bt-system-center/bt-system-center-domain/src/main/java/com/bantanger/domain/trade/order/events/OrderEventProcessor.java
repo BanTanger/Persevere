@@ -28,7 +28,7 @@ public class OrderEventProcessor {
     @EventListener
     public void handleOrderCreateForItem(OrderCreateEvent orderCreateEvent){
         log.info("handleOrderCreateForItem");
-        orderCreateEvent.orderCreateModel().getItemInfoList()
+        orderCreateEvent.getCreateModel().getItemInfoList()
             .forEach(model -> {
                 // 创建订单项
                 OrderItemCreator creator = OrderItemMapper.INSTANCE.model2Creator(model);

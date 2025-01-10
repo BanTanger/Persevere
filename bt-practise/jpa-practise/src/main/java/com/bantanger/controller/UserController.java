@@ -3,7 +3,7 @@ package com.bantanger.controller;
 import com.bantanger.entity.UserInfo;
 import com.bantanger.entity.UserJson;
 import com.bantanger.repository.UserJsonRepository;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -2,7 +2,7 @@ package com.bantanger.dao;
 
 import com.bantanger.entity.Publishers;
 import com.bantanger.service.PublisherService;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

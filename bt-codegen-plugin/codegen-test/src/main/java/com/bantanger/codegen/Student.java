@@ -19,9 +19,9 @@ import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.constants.ValidStatus;
 import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import lombok.Data;
 
 /**

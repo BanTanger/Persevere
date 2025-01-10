@@ -5,7 +5,7 @@ package com.bantanger.domain.trade.order.model.enums;
  * @description
  * @date 2025/1/8
  */
-import jakarta.persistence.AttributeConverter;
+import javax.persistence.AttributeConverter;
 
 public class OrderStateConverter implements AttributeConverter<OrderState, Integer> {
 

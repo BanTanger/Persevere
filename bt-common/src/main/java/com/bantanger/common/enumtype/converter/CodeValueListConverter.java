@@ -4,7 +4,7 @@ import com.bantanger.common.model.CodeValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vavr.control.Try;
-import jakarta.persistence.AttributeConverter;
+import javax.persistence.AttributeConverter;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 

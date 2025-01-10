@@ -39,17 +39,17 @@ import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
 import com.bantanger.order.common.pay.PayItem;
 import com.bantanger.order.common.pay.PayItemListConverter;
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 /**

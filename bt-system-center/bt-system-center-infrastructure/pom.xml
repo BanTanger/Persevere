@@ -10,8 +10,8 @@
     <artifactId>bt-system-center-infrastructure</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>${maven.compiler.version}</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

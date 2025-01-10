@@ -21,8 +21,8 @@ import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.constants.GenSourceConstants;
 import com.bantanger.jpa.support.BaseJpaAggregate;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import lombok.Data;
 

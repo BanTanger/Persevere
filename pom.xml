@@ -19,19 +19,20 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>2.3.12.RELEASE</version>
     </parent>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.version>8</maven.compiler.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <querydsl.version>5.0.0</querydsl.version>
         <spring.boot.version>3.2.0</spring.boot.version>
         <spring-boot-maven-verison>2.4.6</spring-boot-maven-verison>
-        <mapstruct-version>1.5.3.Final</mapstruct-version>
+        <mapstruct-version>1.4.2.Final</mapstruct-version>
         <lombok.version>1.18.30</lombok.version>
-        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
     <dependencies>

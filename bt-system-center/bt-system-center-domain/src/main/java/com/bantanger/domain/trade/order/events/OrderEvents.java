@@ -4,6 +4,7 @@ import com.bantanger.domain.trade.order.domainservice.model.OrderCompleteModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderCreateModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderReviseModel;
 import com.bantanger.domain.trade.order.OrderBase;
+import lombok.Value;
 
 /**
  * @author chensongmin
@@ -14,28 +15,39 @@ public interface OrderEvents {
 
     /**
      * 订单创建事件
-     * @param orderBase
-     * @param orderCreateModel
      */
-    record OrderCreateEvent(OrderBase orderBase, OrderCreateModel orderCreateModel) {}
+    @Value
+    class OrderCreateEvent {
+        OrderBase orderBase;
+        OrderCreateModel createModel;
+    }
+
 
     /**
      * 订单完成事件
-     * @param orderBase
-     * @param orderCompleteModel
      */
-    record OrderCompleteEvent(OrderBase orderBase, OrderCompleteModel orderCompleteModel) {}
+    @Value
+    class OrderCompleteEvent {
+        OrderBase orderBase;
+        OrderCompleteModel completeModel;
+    }
+
 
     /**
      * 订单修订事件
-     * @param orderBase
-     * @param orderReviseModel
      */
-    record OrderReviseEvent(OrderBase orderBase, OrderReviseModel orderReviseModel) {}
+    @Value
+    class OrderReviseEvent {
+        OrderBase orderBase;
+        OrderReviseModel reviseModel;
+    }
 
     /**
      * 订单取消事件
-     * @param orderBase
      */
-    record OrderCancelEvent(OrderBase orderBase) {}
+    @Value
+    class OrderCancelEvent {
+        OrderBase orderBase;
+    }
+
 }

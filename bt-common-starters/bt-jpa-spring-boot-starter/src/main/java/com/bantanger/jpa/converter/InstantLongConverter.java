@@ -1,7 +1,7 @@
 package com.bantanger.jpa.converter;
 
-import jakarta.persistence.AttributeConverter;
 import java.time.Instant;
+import javax.persistence.AttributeConverter;
 
 /**
  * @author chensongmin
