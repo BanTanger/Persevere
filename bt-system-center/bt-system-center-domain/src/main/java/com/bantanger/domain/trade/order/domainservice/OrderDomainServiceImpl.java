@@ -9,6 +9,7 @@ import com.bantanger.domain.trade.order.domainservice.model.OrderCompleteModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderCreateModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderItemModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderReviseModel;
+import com.bantanger.domain.trade.order.mapper.OrderBaseMapper;
 import com.bantanger.domain.trade.order.repository.IFlowNoFacade;
 import com.bantanger.domain.trade.order.repository.OrderBaseRepository;
 import com.bantanger.jpa.support.EntityOperations;

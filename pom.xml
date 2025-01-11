@@ -29,7 +29,7 @@
         <querydsl.version>5.0.0</querydsl.version>
         <spring.boot.version>3.2.0</spring.boot.version>
         <spring-boot-maven-verison>2.4.6</spring-boot-maven-verison>
-        <mapstruct-version>1.5.3.Final</mapstruct-version>
+        <mapstruct-version>1.4.2.Final</mapstruct-version>
         <lombok.version>1.18.30</lombok.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
     </properties>

@@ -1,4 +1,4 @@
-package com.bantanger.domain;
+package com.bantanger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
