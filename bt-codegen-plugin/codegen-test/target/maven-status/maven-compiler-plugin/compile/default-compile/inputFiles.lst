@@ -1,3 +1,13 @@
 E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\Student.java
-E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\target\generated-sources\java\com\bantanger\codegen\QStudent.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\repository\StudentRepository.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\response\StudentResponse.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\request\StudentUpdateRequest.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\mapper\StudentEntityMapper.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\service\StudentServiceImpl.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\service\IStudentService.java
 E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\CodeGenTestApplication.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\request\StudentCreateRequest.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\controller\StudentController.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\mapper\StudentMapper.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\src\main\java\com\bantanger\codegen\request\StudentQueryRequest.java
+E:\JavaProjectManager\Persevere\bt-codegen-plugin\codegen-test\target\generated-sources\java\com\bantanger\codegen\QStudent.java

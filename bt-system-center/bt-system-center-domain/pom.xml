@@ -7,7 +7,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.bantanger</groupId>
     <artifactId>bt-system-center-domain</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -59,12 +61,10 @@
         <dependency>
             <groupId>com.bantanger</groupId>
             <artifactId>bt-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.bantanger</groupId>
             <artifactId>bt-pay-center-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- domain 理应不依赖任何非公共模块，但由于使用代码生成器可以自由控制 req、res 内部字段数量，因此可以引入 api -->
         <dependency>

@@ -12,7 +12,6 @@
         <module>bt-common</module>
         <module>bt-codegen-plugin</module>
         <module>bt-common-starters</module>
-        <module>bt-practise</module>
         <module>bt-system-center</module>
     </modules>
 
@@ -32,6 +31,7 @@
         <mapstruct-version>1.4.2.Final</mapstruct-version>
         <lombok.version>1.18.30</lombok.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <vavr.version>0.10.3</vavr.version>
     </properties>
 
     <dependencies>

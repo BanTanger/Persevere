@@ -28,6 +28,7 @@
         <dependency>
             <groupId>com.bantanger</groupId>
             <artifactId>bt-system-center-domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

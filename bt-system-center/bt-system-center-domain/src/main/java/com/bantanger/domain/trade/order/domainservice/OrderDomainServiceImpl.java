@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
 public class OrderDomainServiceImpl implements IOrderDomainService {
 
     private final OrderBaseRepository orderBaseRepository;
-    private final IFlowNoFacade flowNoFacade;
+    private final IFlowNoFacade flowNoFacadeImpl;
 
     @Override
     public boolean orderCreate(OrderCreateModel orderCreateModel) {
@@ -40,7 +40,7 @@ public class OrderDomainServiceImpl implements IOrderDomainService {
             .map(OrderItemModel::getRealAmount)
             .reduce(BigDecimal.ZERO, BigDecimal::add);
         // 生成订单流水号
-        Long nextId = flowNoFacade.getNextId();
+        Long nextId = flowNoFacadeImpl.getNextId();
 
         OrderBase orderBase = OrderBaseMapper.INSTANCE.model2Entity(orderCreateModel);
         orderBase.setFlowNo(nextId);
