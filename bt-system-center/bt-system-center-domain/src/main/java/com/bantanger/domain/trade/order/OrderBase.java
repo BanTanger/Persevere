@@ -26,6 +26,8 @@ import com.bantanger.common.enumtype.OrderErrorType;
 import com.bantanger.common.enumtype.converter.CodeValueListConverter;
 import com.bantanger.common.exception.BusinessException;
 import com.bantanger.common.model.CodeValue;
+import com.bantanger.domain.pay.PayItem;
+import com.bantanger.domain.pay.PayItemListConverter;
 import com.bantanger.domain.trade.order.domainservice.model.OrderCompleteModel;
 import com.bantanger.domain.trade.order.domainservice.model.OrderCreateModel;
 import com.bantanger.domain.trade.order.events.OrderEvents.OrderCreateEvent;
@@ -37,8 +39,6 @@ import com.bantanger.domain.user.AccountType;
 import com.bantanger.domain.user.AccountTypeConverter;
 import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
-import com.bantanger.order.common.pay.PayItem;
-import com.bantanger.order.common.pay.PayItemListConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -152,7 +152,7 @@ public class OrderBase extends BaseJpaAggregate {
         if (!CollectionUtil.isEmpty(createModel.getPayItemList())) {
             setPayItemList(createModel.getPayItemList());
             BigDecimal hasPay = createModel.getPayItemList().stream()
-                .map(PayItem::getMoney)
+                .map(PayItem::getPayInfo)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
             if (NumberUtil.isGreater(hasPay, total)) {
                 throw new BusinessException(OrderErrorType.PAY_TOO_BIG);
@@ -190,7 +190,7 @@ public class OrderBase extends BaseJpaAggregate {
         }
         // 计算需支付金额
         BigDecimal hasPay = completeModel.getPayItemList().stream()
-            .map(PayItem::getMoney)
+            .map(PayItem::getPayInfo)
             .reduce(BigDecimal.ZERO, BigDecimal::add);
         if (!NumberUtil.equals(hasPay, getWaitPay())) {
             throw new BusinessException(OrderErrorType.PAY_AMOUNT_NOT_EQUAL_WAIT_PAY);

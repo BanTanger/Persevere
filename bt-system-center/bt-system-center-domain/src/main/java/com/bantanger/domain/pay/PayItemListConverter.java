@@ -1,4 +1,4 @@
-package com.bantanger.order.common.pay;
+package com.bantanger.domain.pay;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,7 +24,7 @@ public class PayItemListConverter implements AttributeConverter<List<PayItem>, S
 
     @Override
     public List<PayItem> convertToEntityAttribute(String s) {
-        return Try.of(() -> new ObjectMapper().readValue(s.toString(),
+        return Try.of(() -> new ObjectMapper().readValue(s,
                 new TypeReference<List<PayItem>>() {}))
             .onFailure(e -> log.error("convertToEntityAttribute json reading error", e))
             .getOrNull();

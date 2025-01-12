@@ -20,7 +20,6 @@
         <module>bt-system-center-domain</module>
         <module>bt-system-center-trigger</module>
         <module>bt-system-center-infrastructure</module>
-        <module>bt-pay-center-common</module>
     </modules>
 
 <!--    <repositories>-->
