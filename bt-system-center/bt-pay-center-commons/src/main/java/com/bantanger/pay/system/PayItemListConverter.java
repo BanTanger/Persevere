@@ -1,4 +1,4 @@
-package com.bantanger.domain.pay;
+package com.bantanger.pay.system;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

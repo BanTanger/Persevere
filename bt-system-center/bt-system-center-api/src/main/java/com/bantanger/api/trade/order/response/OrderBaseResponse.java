@@ -4,6 +4,7 @@ package com.bantanger.api.trade.order.response;
 import com.bantanger.common.constants.ValidStatus;
 import com.bantanger.common.model.AbstractJpaResponse;
 import com.bantanger.common.model.CodeValue;
+import com.bantanger.pay.system.PayItem;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.lang.Integer;
 import java.lang.Long;
@@ -72,16 +73,6 @@ public class OrderBaseResponse extends AbstractJpaResponse {
          title = "validStatus"
    )
    private ValidStatus validStatus;
-
-   public interface PayItem {
-
-      BigDecimal getPayInfo();
-
-//    PayGroup getPayGroup();
-
-//    PayType getPayType();
-
-   }
 
    public Long getFlowNo() {
       return flowNo;

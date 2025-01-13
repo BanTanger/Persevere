@@ -64,7 +64,7 @@
         </dependency>
         <dependency>
             <groupId>com.bantanger</groupId>
-            <artifactId>bt-pay-center-common</artifactId>
+            <artifactId>bt-pay-center-commons</artifactId>
         </dependency>
         <!-- domain 理应不依赖任何非公共模块，但由于使用代码生成器可以自由控制 req、res 内部字段数量，因此可以引入 api -->
         <dependency>

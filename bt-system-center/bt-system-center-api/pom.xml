@@ -43,7 +43,7 @@
         </dependency>
         <dependency>
             <groupId>com.bantanger</groupId>
-            <artifactId>bt-pay-center-common</artifactId>
+            <artifactId>bt-pay-center-commons</artifactId>
         </dependency>
     </dependencies>
 

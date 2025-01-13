@@ -20,6 +20,7 @@
         <module>bt-system-center-domain</module>
         <module>bt-system-center-trigger</module>
         <module>bt-system-center-infrastructure</module>
+        <module>bt-pay-center-commons</module>
     </modules>
 
 <!--    <repositories>-->
@@ -64,6 +65,16 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.22</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>2.0.28</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>3.26.0</version>
             </dependency>
             <dependency>
                 <groupId>io.vavr</groupId>
@@ -129,7 +140,7 @@
             </dependency>
             <dependency>
                 <groupId>com.bantanger</groupId>
-                <artifactId>bt-pay-center-common</artifactId>
+                <artifactId>bt-pay-center-commons</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
