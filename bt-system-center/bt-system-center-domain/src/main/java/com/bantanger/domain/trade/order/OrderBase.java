@@ -104,7 +104,7 @@ public class OrderBase extends BaseJpaAggregate {
     @IgnoreCreator
     @IgnoreUpdater
     @Convert(converter = PayItemListConverter.class)
-    @Column(columnDefinition = "json")
+    @Column(columnDefinition = "text")
     private List<PayItem> payItemList;
 
     @FieldDesc(name = "待支付金额")
@@ -125,7 +125,7 @@ public class OrderBase extends BaseJpaAggregate {
 
     @FieldDesc(name = "订单附加信息")
     @Convert(converter = CodeValueListConverter.class)
-    @Column(columnDefinition = "json")
+    @Column(columnDefinition = "text")
     private List<CodeValue> attrs;
 
     @FieldDesc(name = "是否开票")

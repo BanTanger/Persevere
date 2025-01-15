@@ -14,18 +14,18 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2025/1/8
  */
 @Slf4j
-public class CodeValueListConverter implements AttributeConverter<List<CodeValue>, Object> {
+public class CodeValueListConverter implements AttributeConverter<List<CodeValue>, String> {
 
     @Override
-    public Object convertToDatabaseColumn(List<CodeValue> codeValueList) {
+    public String convertToDatabaseColumn(List<CodeValue> codeValueList) {
         return Try.of(() -> new ObjectMapper().writeValueAsString(codeValueList))
                 .onFailure(e -> log.error("convertToDatabaseColumn json writing error"))
                 .getOrNull();
     }
 
     @Override
-    public List<CodeValue> convertToEntityAttribute(Object o) {
-        return Try.of(() -> new ObjectMapper().readValue(o.toString(),
+    public List<CodeValue> convertToEntityAttribute(String o) {
+        return Try.of(() -> new ObjectMapper().readValue(o,
                 new TypeReference<List<CodeValue>>() {}))
                 .onFailure(e -> log.error("convertToEntityAttribute json reading error"))
                 .getOrNull();
