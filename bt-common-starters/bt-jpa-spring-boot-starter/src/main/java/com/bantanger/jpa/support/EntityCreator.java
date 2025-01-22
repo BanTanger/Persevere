@@ -16,13 +16,13 @@ import org.springframework.data.repository.CrudRepository;
  * @date 2025/1/8
  */
 @Slf4j
-public class EntityCreator<T, ID> extends BaseEntityOperation implements Create<T>,
-    UpdateHandler<T>, Executor<T> {
+public class EntityCreator<T, ID> extends BaseEntityOperation
+    implements Create<T>, UpdateHandler<T>, Executor<T> {
 
     private final CrudRepository<T, ID> repository;
     private T t;
     private Consumer<T> successHook = t -> log.info("save success");
-    private Consumer<? super Throwable> errorHook = e -> e.printStackTrace();
+    private Consumer<? super Throwable> errorHook = Throwable::printStackTrace;
 
     public EntityCreator(CrudRepository<T, ID> repository) {
         this.repository = repository;

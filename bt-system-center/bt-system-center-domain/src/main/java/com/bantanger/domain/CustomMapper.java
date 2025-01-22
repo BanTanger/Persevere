@@ -1,7 +1,9 @@
 package com.bantanger.domain;
 
-import com.bantanger.domain.trade.order.model.enums.OrderState;
-import com.bantanger.domain.trade.order.model.enums.OrderType;
+import com.bantanger.domain.asset.record.enums.InOutBizType;
+import com.bantanger.domain.asset.record.enums.InOutType;
+import com.bantanger.domain.trade.order.enums.OrderState;
+import com.bantanger.domain.trade.order.enums.OrderType;
 import com.bantanger.domain.user.AccountType;
 
 /**
@@ -35,22 +37,21 @@ public class CustomMapper {
 //            return SkuType.of(code).orElse(SkuType.SINGLE);
 //        }
 
-        public Integer orderType2Int(OrderType orderType) {
-            return orderType.getCode();
-        }
+    public Integer orderType2Int(OrderType orderType) {
+        return orderType.getCode();
+    }
 
-        public OrderType int2OrderType(Integer code) {
-            return OrderType.of(code).orElse(OrderType.CHARGE);
-        }
+    public OrderType int2OrderType(Integer code) {
+        return OrderType.of(code).orElse(OrderType.CHARGE);
+    }
 
-        public Integer accountType2Int(AccountType accountType) {
-            return accountType.getCode();
-        }
+    public Integer accountType2Int(AccountType accountType) {
+        return accountType.getCode();
+    }
 
-        public AccountType int2AccountType(Integer code) {
-            return AccountType.of(code).orElse(AccountType.PERSONAL);
-        }
-
+    public AccountType int2AccountType(Integer code) {
+        return AccountType.of(code).orElse(AccountType.PERSONAL);
+    }
 
 //        public Integer opType2Int(OrderOperateType type) {
 //            return type.getCode();
@@ -60,13 +61,13 @@ public class CustomMapper {
 //            return OrderOperateType.of(code).orElse(OrderOperateType.AUTH_SUCCESS);
 //        }
 
-        public Integer status2OrderState(OrderState state) {
-            return state.getCode();
-        }
+    public Integer status2OrderState(OrderState state) {
+        return state.getCode();
+    }
 
-        public OrderState int2State(Integer code) {
-            return OrderState.of(code).orElse(OrderState.WAIT_PAY);
-        }
+    public OrderState int2State(Integer code) {
+        return OrderState.of(code).orElse(OrderState.WAIT_PAY);
+    }
 
 //        public ReceiptStatus int2Status(Integer code) {
 //            return ReceiptStatus.of(code).orElse(ReceiptStatus.UNMAKING);
@@ -84,4 +85,20 @@ public class CustomMapper {
 //            return payType.getCode();
 //        }
 
+    public Integer inOutBizType2Int(InOutBizType inOutBizType) {
+        return inOutBizType.getCode();
     }
+
+    public InOutBizType int2InOutBizType(Integer code) {
+        return InOutBizType.of(code).orElse(InOutBizType.IN_INITIAL);
+    }
+
+    public Integer inOutType2Int(InOutType inOutType) {
+        return inOutType.getCode();
+    }
+
+    public InOutType int2InOutType(Integer code) {
+        return InOutType.of(code).orElse(InOutType.IN);
+    }
+
+}

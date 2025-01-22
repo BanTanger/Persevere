@@ -1,7 +1,7 @@
 package com.bantanger.domain.asset.asset.domainservice.model;
 
 import com.bantanger.common.annotation.FieldDesc;
-import com.bantanger.domain.asset.assetrecord.InOutBizType;
+import com.bantanger.domain.asset.record.enums.InOutBizType;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +15,7 @@ import lombok.Setter;
 @Getter
 public class BatchInOutModel {
 
+    @FieldDesc(name = "资产名称")
     private String name;
 
     @FieldDesc(name = "出入库业务类型")

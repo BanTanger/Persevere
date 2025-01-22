@@ -15,7 +15,7 @@ public abstract class EntityOperations {
     }
 
     public static <T, ID> EntityCreator<T, ID> doCreate(CrudRepository<T, ID> repository) {
-        return new EntityCreator(repository);
+        return new EntityCreator<>(repository);
     }
 
 

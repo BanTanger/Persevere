@@ -20,6 +20,17 @@ mvn clean install -U -e -pl bt-codegen-plugin\codegen-apt
 mvn clean compile -U -e -pl bt-system-center\bt-system-center-domain
 ```
 
+如果是跨子模块生成 controller、api。可能执行时会报错：找不到 xx 依赖，这时需要在 api 子模块下执行 install 命令。
+因为 domain 子模块引用了 api 子模块，所以需要先 install api 子模块。
+
+---
+
+一定要编译执行成功，因为 querydsl 需要编译出来的 Q 类
+
+编译成功的 target 应该如下：
+
+![编译成功的target目录.png](docs/photo/编译成功的target目录.png)
+
 **对于命令行执行会报错的**
 
 解决方案一: 在 IDEA 右侧执行 Maven 插件 plugin compiler:compiler。

@@ -10,25 +10,6 @@ import java.lang.Long;
 import org.springframework.data.domain.Page;
 
 public interface IAssetService {
-   /**
-    * create
-    */
-   Long createAsset(AssetCreator creator);
-
-   /**
-    * update
-    */
-   void updateAsset(AssetUpdater updater);
-
-   /**
-    * valid
-    */
-   void validAsset(Long id);
-
-   /**
-    * invalid
-    */
-   void invalidAsset(Long id);
 
    /**
     * findById

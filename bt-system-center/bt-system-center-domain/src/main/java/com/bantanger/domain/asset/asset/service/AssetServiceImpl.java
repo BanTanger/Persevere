@@ -34,51 +34,6 @@ public class AssetServiceImpl implements IAssetService {
    private final AssetRepository assetRepository;
 
    /**
-    * createImpl
-    */
-   @Override
-   public Long createAsset(AssetCreator creator) {
-      Optional<Asset> asset = EntityOperations.doCreate(assetRepository)
-      .create(() -> AssetMapper.INSTANCE.dtoToEntity(creator))
-      .update(e -> e.init())
-      .execute();
-      return asset.isPresent() ? asset.get().getId() : 0;
-   }
-
-   /**
-    * update
-    */
-   @Override
-   public void updateAsset(AssetUpdater updater) {
-      EntityOperations.doUpdate(assetRepository)
-      .loadById(updater.getId())
-      .update(e -> updater.updateAsset(e))
-      .execute();
-   }
-
-   /**
-    * valid
-    */
-   @Override
-   public void validAsset(Long id) {
-      EntityOperations.doUpdate(assetRepository)
-      .loadById(id)
-      .update(e -> {})
-      .execute();
-   }
-
-   /**
-    * invalid
-    */
-   @Override
-   public void invalidAsset(Long id) {
-      EntityOperations.doUpdate(assetRepository)
-      .loadById(id)
-      .update(e -> {})
-      .execute();
-   }
-
-   /**
     * findById
     */
    @Override

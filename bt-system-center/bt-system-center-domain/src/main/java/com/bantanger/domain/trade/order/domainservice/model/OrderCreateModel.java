@@ -2,7 +2,7 @@ package com.bantanger.domain.trade.order.domainservice.model;
 
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.model.CodeValue;
-import com.bantanger.domain.trade.order.model.enums.OrderType;
+import com.bantanger.domain.trade.order.enums.OrderType;
 import com.bantanger.domain.user.AccountType;
 import com.bantanger.pay.system.PayItem;
 import java.util.List;
