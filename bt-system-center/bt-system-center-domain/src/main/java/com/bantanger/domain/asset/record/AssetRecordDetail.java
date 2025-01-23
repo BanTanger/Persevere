@@ -20,7 +20,7 @@ import lombok.Data;
 @GenUpdater(pkgName = "com.bantanger.domain.asset.record.updater")
 @GenRepository(pkgName = "com.bantanger.domain.asset.record.repository")
 @Entity
-@Table(name = "asset_in_out_record")
+@Table(name = "asset_record_detail")
 @Data
 public class AssetRecordDetail extends BaseJpaAggregate {
 

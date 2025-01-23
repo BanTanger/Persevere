@@ -114,6 +114,7 @@ public class AssetDomainService implements IAssetDomainService {
         // 转出
         BatchInOutModel outModel = new BatchInOutModel();
         outModel.setInOutBizType(InOutBizType.OUT_TRANSFER);
+        outModel.setWareHouseId(transferModel.getTransferOutHouseId());
         outModel.setUniqueCodes(transferModel.getUniqueCodes());
         outModel.setBatchNo(transferModel.getBatchNo());
         outModel.setSkuId(transferModel.getSkuId());
@@ -126,12 +127,13 @@ public class AssetDomainService implements IAssetDomainService {
         BatchInOutModel inModel = new BatchInOutModel();
         inModel.setName(asset.get().getName());
         inModel.setInOutBizType(InOutBizType.IN_TRANSFER);
+        inModel.setWareHouseId(transferModel.getTransferInHouseId());
         inModel.setUniqueCodes(transferModel.getUniqueCodes());
         inModel.setBatchNo(transferModel.getBatchNo());
         inModel.setSkuId(transferModel.getSkuId());
         inModel.setOperateUser(transferModel.getOperateUser());
         this.handleAssetIn(inModel);
         log.info("处理入库完成，仓库id:{}, 批次号:{}, 自动批号:{}",
-            transferModel.getTransferOutHouseId(), transferModel.getBatchNo(), genBatchNo);
+            transferModel.getTransferInHouseId(), transferModel.getBatchNo(), genBatchNo);
     }
 }
