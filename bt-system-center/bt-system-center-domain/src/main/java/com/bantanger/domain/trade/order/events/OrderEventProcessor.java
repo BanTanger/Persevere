@@ -4,6 +4,9 @@ import com.bantanger.domain.trade.order.events.OrderEvents.OrderCreateEvent;
 import com.bantanger.domain.trade.orderitem.creator.OrderItemCreator;
 import com.bantanger.domain.trade.orderitem.mapper.OrderItemMapper;
 import com.bantanger.domain.trade.orderitem.service.IOrderItemService;
+import com.bantanger.domain.trade.orderlifecycle.creator.OrderLifecycleCreator;
+import com.bantanger.domain.trade.orderlifecycle.enums.OrderOperateType;
+import com.bantanger.domain.trade.orderlifecycle.service.IOrderLifecycleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
@@ -20,6 +23,7 @@ import org.springframework.stereotype.Component;
 public class OrderEventProcessor {
 
     private final IOrderItemService orderItemService;
+    private final IOrderLifecycleService orderLifecycleService;
 
     /**
      * 订单创建通知订单项子域
@@ -38,6 +42,10 @@ public class OrderEventProcessor {
             });
     }
 
+    /**
+     * 订单创建通知，数据同步 ES 【查存分离 CQRS】
+     * @param createEvent
+     */
     @EventListener
     public void handleOrderCreateForEs(OrderCreateEvent createEvent){
         log.info("handleOrderCreateForEs");
@@ -49,7 +57,12 @@ public class OrderEventProcessor {
      */
     @EventListener
     public void handleOrderCreateForLifecycle(OrderCreateEvent createEvent){
-        log.info("handleOrderCreateForLifecycle");
+        OrderLifecycleCreator creator = new OrderLifecycleCreator();
+        creator.setFlowNo(createEvent.orderBase().getFlowNo());
+        creator.setOperateType(OrderOperateType.ORDER_CREATE);
+        creator.setOperateUser(createEvent.orderCreateModel().getOperateUser());
+        creator.setRemark("订单创建成功");
+        orderLifecycleService.createOrderLifecycle(creator);
     }
 
 }

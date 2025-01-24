@@ -65,7 +65,7 @@ import lombok.Data;
 @GenServiceImpl(pkgName = "com.bantanger.domain.trade.order.service")
 @GenQuery(pkgName = "com.bantanger.domain.trade.order.query")
 @GenMapper(pkgName = "com.bantanger.domain.trade.order.mapper")
-@GenController(pkgName = "com.bantanger.trigger.http.trade.order", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
+@GenController(pkgName = "com.bantanger.trigger.http.trade", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
 @GenCreateRequest(pkgName = "com.bantanger.api.trade.order.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
 @GenUpdateRequest(pkgName = "com.bantanger.api.trade.order.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
 @GenQueryRequest(pkgName = "com.bantanger.api.trade.order.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
