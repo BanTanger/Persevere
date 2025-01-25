@@ -1,10 +1,5 @@
 package com.bantanger.test.trade.statemachine;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 /**
  * @author chensongmin
  * @description 支付领域服务
@@ -24,7 +19,7 @@ public class PaymentDomainService implements IPaymentDomainService {
         PaymentModel paymentModel = new PaymentModel();
         try {
             // 状态推进
-            paymentModel.transferStatus(message.getEvent());
+            paymentModel.transferStatus(message.paymentEvent());
             // savePaymentModel (db)...
             // save log ...
             // send mq ...
@@ -35,12 +30,5 @@ public class PaymentDomainService implements IPaymentDomainService {
 
 }
 
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-class PaymentNotifyMessage {
-    private Long paymentId;
-    private PaymentEvent event;
+record PaymentNotifyMessage(String paymentId, PaymentEvent paymentEvent) {
 }

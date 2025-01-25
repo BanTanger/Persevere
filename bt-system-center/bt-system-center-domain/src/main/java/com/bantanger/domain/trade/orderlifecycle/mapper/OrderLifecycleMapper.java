@@ -7,6 +7,7 @@ import com.bantanger.api.trade.orderlifecycle.request.OrderLifecycleUpdateReques
 import com.bantanger.api.trade.orderlifecycle.response.OrderLifecycleResponse;
 import com.bantanger.common.mapper.DateMapper;
 import com.bantanger.common.mapper.GenericEnumMapper;
+import com.bantanger.domain.CustomMapper;
 import com.bantanger.domain.trade.orderlifecycle.OrderLifecycle;
 import com.bantanger.domain.trade.orderlifecycle.creator.OrderLifecycleCreator;
 import com.bantanger.domain.trade.orderlifecycle.query.OrderLifecycleQuery;
@@ -16,26 +17,28 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(
-      uses = {
-            GenericEnumMapper.class,
-            DateMapper.class
-      }
+    uses = {
+        GenericEnumMapper.class,
+        DateMapper.class,
+        CustomMapper.class
+    }
 )
 public interface OrderLifecycleMapper {
-   OrderLifecycleMapper INSTANCE = Mappers.getMapper(OrderLifecycleMapper.class);
 
-   OrderLifecycle dtoToEntity(OrderLifecycleCreator dto);
+    OrderLifecycleMapper INSTANCE = Mappers.getMapper(OrderLifecycleMapper.class);
 
-   OrderLifecycleUpdater request2Updater(OrderLifecycleUpdateRequest request);
+    OrderLifecycle dtoToEntity(OrderLifecycleCreator dto);
 
-   OrderLifecycleCreator request2Dto(OrderLifecycleCreateRequest request);
+    OrderLifecycleUpdater request2Updater(OrderLifecycleUpdateRequest request);
 
-   OrderLifecycleQuery request2Query(OrderLifecycleQueryRequest request);
+    OrderLifecycleCreator request2Dto(OrderLifecycleCreateRequest request);
 
-   OrderLifecycleResponse vo2Response(OrderLifecycleVO vo);
+    OrderLifecycleQuery request2Query(OrderLifecycleQueryRequest request);
 
-   default OrderLifecycleResponse vo2CustomResponse(OrderLifecycleVO vo) {
-      OrderLifecycleResponse response = vo2Response(vo);
-      return response;
-   }
+    OrderLifecycleResponse vo2Response(OrderLifecycleVO vo);
+
+    default OrderLifecycleResponse vo2CustomResponse(OrderLifecycleVO vo) {
+        OrderLifecycleResponse response = vo2Response(vo);
+        return response;
+    }
 }

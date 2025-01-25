@@ -23,6 +23,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
+//@DataJpaTest
 public class AssetServiceTest {
 
     @Resource

@@ -4,6 +4,7 @@ import com.bantanger.domain.asset.record.enums.InOutBizType;
 import com.bantanger.domain.asset.record.enums.InOutType;
 import com.bantanger.domain.trade.order.enums.OrderState;
 import com.bantanger.domain.trade.order.enums.OrderType;
+import com.bantanger.domain.trade.orderlifecycle.enums.OrderOperateType;
 import com.bantanger.domain.user.AccountType;
 
 /**
@@ -99,6 +100,14 @@ public class CustomMapper {
 
     public InOutType int2InOutType(Integer code) {
         return InOutType.of(code).orElse(InOutType.IN);
+    }
+
+    public Integer orderOperateType2Int(OrderOperateType orderOperateType) {
+        return orderOperateType.getCode();
+    }
+
+    public OrderOperateType int2OrderOperateType(Integer code) {
+        return OrderOperateType.of(code).orElse(OrderOperateType.AUTH_SUCCESS);
     }
 
 }

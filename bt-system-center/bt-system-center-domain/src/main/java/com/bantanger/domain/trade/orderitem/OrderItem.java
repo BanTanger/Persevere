@@ -50,6 +50,9 @@ public class OrderItem extends BaseJpaAggregate {
     @FieldDesc(name = "唯一流水号")
     private Long flowNo;
 
+    /**
+     * 可能存在 邮费 + 商品金额 - 优惠金额 = 实际金额 的情况
+     */
     @FieldDesc(name = "真实金额")
     private BigDecimal realAmount;
 
