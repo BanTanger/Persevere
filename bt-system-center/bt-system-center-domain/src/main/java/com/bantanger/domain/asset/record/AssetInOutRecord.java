@@ -63,12 +63,12 @@ public class AssetInOutRecord extends BaseJpaAggregate {
 
     @FieldDesc(name = "出入库业务类型")
     @Convert(converter = InOutBizTypeConverter.class)
-    @TypeConverter(toTypeFullName = "java.lang.Integer")
+    @TypeConverter
     private InOutBizType inOutBizType;
 
     @FieldDesc(name = "出入库类型")
     @Convert(converter = InOutTypeConverter.class)
-    @TypeConverter(toTypeFullName = "java.lang.Integer")
+    @TypeConverter
     private InOutType inOutType;
 
     @FieldDesc(name = "总数量")

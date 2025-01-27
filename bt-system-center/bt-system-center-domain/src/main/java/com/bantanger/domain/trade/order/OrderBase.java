@@ -89,13 +89,13 @@ public class OrderBase extends BaseJpaAggregate {
 
     @FieldDesc(name = "账号类型: 1-个人, 2-企业")
     @Convert(converter = AccountTypeConverter.class)
-    @TypeConverter(toTypeFullName = "java.lang.Integer")
+    @TypeConverter
     private AccountType accountType;
 
     // 根据不同的订单类型创建不同的状态机
     @FieldDesc(name = "订单类型: 1-普通订单, 2-秒杀订单")
     @Convert(converter = OrderTypeConverter.class)
-    @TypeConverter(toTypeFullName = "java.lang.Integer")
+    @TypeConverter
     @IgnoreUpdater
     @QueryItem
     private OrderType orderType;
@@ -118,7 +118,7 @@ public class OrderBase extends BaseJpaAggregate {
 
     @FieldDesc(name = "订单状态")
     @Convert(converter = OrderStateConverter.class)
-    @TypeConverter(toTypeFullName = "java.lang.Integer")
+    @TypeConverter
     @IgnoreUpdater
     @IgnoreCreator
     private OrderState orderState;

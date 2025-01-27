@@ -1,11 +1,17 @@
 package com.bantanger.domain;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.bantanger.domain.asset.record.enums.InOutBizType;
 import com.bantanger.domain.asset.record.enums.InOutType;
+import com.bantanger.domain.message.record.enums.MsgType;
+import com.bantanger.domain.message.record.enums.NotifyType;
+import com.bantanger.domain.message.template.enums.TemplateType;
 import com.bantanger.domain.trade.order.enums.OrderState;
 import com.bantanger.domain.trade.order.enums.OrderType;
 import com.bantanger.domain.trade.orderlifecycle.enums.OrderOperateType;
 import com.bantanger.domain.user.AccountType;
+import java.util.Map;
 
 /**
  * @author chensongmin
@@ -54,13 +60,13 @@ public class CustomMapper {
         return AccountType.of(code).orElse(AccountType.PERSONAL);
     }
 
-//        public Integer opType2Int(OrderOperateType type) {
-//            return type.getCode();
-//        }
-//
-//        public OrderOperateType int2OpType(Integer code) {
-//            return OrderOperateType.of(code).orElse(OrderOperateType.AUTH_SUCCESS);
-//        }
+    public Integer opType2Int(OrderOperateType type) {
+        return type.getCode();
+    }
+
+    public OrderOperateType int2OpType(Integer code) {
+        return OrderOperateType.of(code).orElse(OrderOperateType.AUTH_SUCCESS);
+    }
 
     public Integer status2OrderState(OrderState state) {
         return state.getCode();
@@ -102,12 +108,36 @@ public class CustomMapper {
         return InOutType.of(code).orElse(InOutType.IN);
     }
 
-    public Integer orderOperateType2Int(OrderOperateType orderOperateType) {
-        return orderOperateType.getCode();
+    public NotifyType int2NoticeType(Integer code){
+        return NotifyType.of(code).orElse(null);
     }
 
-    public OrderOperateType int2OrderOperateType(Integer code) {
-        return OrderOperateType.of(code).orElse(OrderOperateType.AUTH_SUCCESS);
+    public Integer noticeType2Int(NotifyType noticeType){
+        return noticeType.getCode();
+    }
+
+    public MsgType int2MsgTypeEnum(Integer code){
+        return MsgType.of(code).orElse(null);
+    }
+
+    public Integer msgTypeEnum2Int(MsgType msgTypeEnum){
+        return msgTypeEnum.getCode();
+    }
+
+    public TemplateType int2TemplateType(Integer code){
+        return TemplateType.of(code).orElse(null);
+    }
+
+    public Integer templateType2Int(TemplateType templateType){
+        return templateType.getCode();
+    }
+
+    public Map<String,Object> string2Map(String str){
+        return JSONObject.parseObject(str);
+    }
+
+    public String map2String(Map<String,Object> map){
+        return JSON.toJSONString(map);
     }
 
 }
