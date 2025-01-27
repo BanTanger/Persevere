@@ -5,19 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.bantanger</groupId>
-        <artifactId>persevere</artifactId>
+        <artifactId>bt-common-starters</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <modules>
-        <module>bt-jpa-spring-boot-starter</module>
-        <module>bt-extension-spring-boot-starter</module>
-    </modules>
-
     <groupId>com.bantanger</groupId>
-    <artifactId>bt-common-starters</artifactId>
+    <artifactId>bt-extension-spring-boot-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -28,19 +22,9 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.bantanger</groupId>
-            <artifactId>bt-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <version>3.2.0</version>
         </dependency>
     </dependencies>
-
 </project>

@@ -16,6 +16,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 public @interface TypeConverter {
 
-    String toTypeFullName() default "java.lang.String";
+    String toTypeFullName() default "java.lang.Integer";
 
 }
