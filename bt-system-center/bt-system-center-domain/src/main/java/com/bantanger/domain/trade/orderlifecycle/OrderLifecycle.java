@@ -57,7 +57,7 @@ public class OrderLifecycle extends BaseJpaAggregate {
 
     @FieldDesc(name = "操作类型")
     @Convert(converter = OrderOperateTypeConverter.class)
-    @TypeConverter(toTypeFullName = "java.lang.Integer")
+    @TypeConverter
     private OrderOperateType operateType;
 
     @FieldDesc(name = "额外信息")
