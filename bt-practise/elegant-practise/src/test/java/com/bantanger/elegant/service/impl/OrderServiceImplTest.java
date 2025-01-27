@@ -1,7 +1,5 @@
 package com.bantanger.elegant.service.impl;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.bantanger.elegant.order.BizLineEnum;
 import com.bantanger.elegant.order.OrderRequest;
 import com.bantanger.elegant.service.IOrderService;
