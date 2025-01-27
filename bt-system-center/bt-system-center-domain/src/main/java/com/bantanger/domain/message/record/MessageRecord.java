@@ -29,6 +29,8 @@ import com.bantanger.domain.message.record.enums.MsgType;
 import com.bantanger.domain.message.record.enums.MsgTypeConverter;
 import com.bantanger.domain.message.record.enums.NotifyType;
 import com.bantanger.domain.message.record.enums.NotifyTypeConverter;
+import com.bantanger.domain.message.record.events.MessageRecordEvent;
+import com.bantanger.domain.message.record.events.MessageRecordEvent.MessageRecordCreateEvent;
 import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
 import jakarta.persistence.Column;
@@ -86,7 +88,7 @@ public class MessageRecord extends BaseJpaAggregate {
     public void init(String msgContent) {
         this.setMessageContent(msgContent);
         this.setValidStatus(ValidStatus.VALID);
-//        registerEvent(new )
+        registerEvent(new MessageRecordCreateEvent(this));
     }
 
     public void valid() {

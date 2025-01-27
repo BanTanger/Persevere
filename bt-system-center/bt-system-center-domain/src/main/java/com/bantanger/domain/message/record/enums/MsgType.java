@@ -14,7 +14,7 @@ import lombok.Getter;
 public enum MsgType implements BaseEnum<MsgType> {
 
     VERIFY(1, "验证码"),
-    NOTICE(2,"通知"),
+    NOTIFY(2,"通知"),
 
     ;
 
