@@ -2,7 +2,7 @@
 package com.bantanger.domain.asset.record.service;
 
 import cn.hutool.core.collection.IterUtil;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.exception.BusinessException;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.domain.asset.record.AssetInOutRecord;

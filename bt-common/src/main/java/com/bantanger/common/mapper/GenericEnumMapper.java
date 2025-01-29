@@ -1,6 +1,6 @@
 package com.bantanger.common.mapper;
 
-import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.enums.ValidStatus;
 
 /**
  * @author chensongmin

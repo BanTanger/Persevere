@@ -1,7 +1,7 @@
 package com.bantanger.test;
 
 import cn.hutool.core.util.IdUtil;
-import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.domain.trade.order.OrderBase;
 import com.bantanger.domain.trade.order.enums.OrderState;
 import com.bantanger.domain.trade.order.enums.OrderType;

@@ -6,7 +6,6 @@ package com.bantanger.domain.asset.record;
  * @date 2025/1/22
  */
 import com.bantanger.codegen.processor.api.GenCreateRequest;
-import com.bantanger.codegen.processor.api.GenFeign;
 import com.bantanger.codegen.processor.api.GenQueryRequest;
 import com.bantanger.codegen.processor.api.GenResponse;
 import com.bantanger.codegen.processor.api.GenUpdateRequest;
@@ -24,7 +23,7 @@ import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.annotation.TypeConverter;
 import com.bantanger.common.constants.GenSourceConstants;
-import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.domain.asset.record.enums.InOutBizType;
 import com.bantanger.domain.asset.record.enums.InOutBizTypeConverter;
 import com.bantanger.domain.asset.record.enums.InOutType;

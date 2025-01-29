@@ -6,7 +6,7 @@ package com.bantanger.domain.message.template.enums;
  * @date 2025/1/27
  */
 
-import com.bantanger.common.constants.BaseEnum;
+import com.bantanger.common.enums.BaseEnum;
 import java.util.Optional;
 import lombok.Getter;
 

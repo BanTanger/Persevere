@@ -5,7 +5,7 @@ import com.bantanger.api.asset.lifecycle.request.AssetLifecycleCreateRequest;
 import com.bantanger.api.asset.lifecycle.request.AssetLifecycleQueryRequest;
 import com.bantanger.api.asset.lifecycle.request.AssetLifecycleUpdateRequest;
 import com.bantanger.api.asset.lifecycle.response.AssetLifecycleResponse;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.model.JsonObject;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.common.model.PageResult;

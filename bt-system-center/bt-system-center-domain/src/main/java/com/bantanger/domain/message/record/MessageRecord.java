@@ -23,23 +23,19 @@ import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.annotation.TypeConverter;
 import com.bantanger.common.constants.GenSourceConstants;
-import com.bantanger.common.constants.ValidStatus;
-import com.bantanger.domain.message.record.domainservice.model.MessageSendModel;
+import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.domain.message.record.enums.MsgType;
 import com.bantanger.domain.message.record.enums.MsgTypeConverter;
 import com.bantanger.domain.message.record.enums.NotifyType;
 import com.bantanger.domain.message.record.enums.NotifyTypeConverter;
-import com.bantanger.domain.message.record.events.MessageRecordEvent;
 import com.bantanger.domain.message.record.events.MessageRecordEvent.MessageRecordCreateEvent;
 import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
-import org.hibernate.tool.schema.extract.spi.ColumnTypeInformation;
 
 @GenVo(pkgName = "com.bantanger.domain.message.record.vo")
 @GenCreator(pkgName = "com.bantanger.domain.message.record.creator")
@@ -68,7 +64,7 @@ public class MessageRecord extends BaseJpaAggregate {
     private String messageContent;
 
     @FieldDesc(name = "执行参数")
-    private String executeParams;
+    private String params;
 
     @FieldDesc(name = "消息类型")
     @Convert(converter = MsgTypeConverter.class)

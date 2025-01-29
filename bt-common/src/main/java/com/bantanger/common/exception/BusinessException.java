@@ -1,7 +1,7 @@
 package com.bantanger.common.exception;
 
 
-import com.bantanger.common.constants.BaseEnum;
+import com.bantanger.common.enums.BaseEnum;
 
 /**
  * @author gim 强制业务异常必须提供code码，便于统一维护

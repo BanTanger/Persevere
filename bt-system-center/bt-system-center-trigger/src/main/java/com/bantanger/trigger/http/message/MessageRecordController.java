@@ -5,7 +5,7 @@ import com.bantanger.api.message.record.request.MessageRecordCreateRequest;
 import com.bantanger.api.message.record.request.MessageRecordQueryRequest;
 import com.bantanger.api.message.record.request.MessageRecordUpdateRequest;
 import com.bantanger.api.message.record.response.MessageRecordResponse;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.model.JsonObject;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.common.model.PageResult;

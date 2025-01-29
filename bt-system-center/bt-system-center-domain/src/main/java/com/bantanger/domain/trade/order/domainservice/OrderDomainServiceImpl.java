@@ -1,7 +1,7 @@
 package com.bantanger.domain.trade.order.domainservice;
 
 import cn.hutool.core.lang.Assert;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.exception.BusinessException;
 import com.bantanger.domain.trade.order.OrderBase;
 import com.bantanger.domain.trade.order.QOrderBase;

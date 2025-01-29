@@ -18,7 +18,7 @@ import org.springframework.data.domain.AbstractAggregateRoot;
 
 /**
  * @author chensongmin
- * @description
+ * @description JPA 审计基类
  * @date 2025/1/8
  */
 @MappedSuperclass

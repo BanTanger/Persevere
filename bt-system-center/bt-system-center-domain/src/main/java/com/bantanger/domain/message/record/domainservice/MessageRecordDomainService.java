@@ -1,8 +1,7 @@
 package com.bantanger.domain.message.record.domainservice;
 
-import com.bantanger.common.enumtype.MessageErrorType;
+import com.bantanger.common.errortype.MessageErrorType;
 import com.bantanger.common.exception.BusinessException;
-import com.bantanger.domain.message.record.MessageRecord;
 import com.bantanger.domain.message.record.domainservice.model.MessageSendModel;
 import com.bantanger.domain.message.record.mapper.MessageRecordMapper;
 import com.bantanger.domain.message.record.repository.MessageRecordRepository;
@@ -29,8 +28,8 @@ public class MessageRecordDomainService implements IMessageRecordDomainService {
 
     @Override
     public void sendMessage(MessageSendModel messageSendModel) {
-        MessageTemplate messageTemplate = messageTemplateRepository.findByTemplateCode(
-                messageSendModel.getTemplateCode())
+        MessageTemplate messageTemplate = messageTemplateRepository
+            .findByTemplateCode(messageSendModel.getTemplateCode())
             .orElseThrow(() -> new BusinessException(MessageErrorType.TEMPLATE_NOT_FOUND));
 
         // jodd 字符串模板解析器，性能比 replace 高几倍

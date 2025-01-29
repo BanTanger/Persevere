@@ -1,7 +1,7 @@
 package com.bantanger.common.model;
 
-import com.bantanger.common.constants.BaseEnum;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.BaseEnum;
+import com.bantanger.common.enums.CodeEnum;
 import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.Data;

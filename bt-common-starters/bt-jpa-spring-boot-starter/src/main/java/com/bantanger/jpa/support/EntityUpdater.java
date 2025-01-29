@@ -1,6 +1,6 @@
 package com.bantanger.jpa.support;
 
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.exception.BusinessException;
 import com.bantanger.common.validator.UpdateGroup;
 import io.vavr.control.Try;

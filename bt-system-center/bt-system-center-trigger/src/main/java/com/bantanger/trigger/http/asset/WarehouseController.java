@@ -5,7 +5,7 @@ import com.bantanger.api.asset.warehouse.request.WarehouseCreateRequest;
 import com.bantanger.api.asset.warehouse.request.WarehouseQueryRequest;
 import com.bantanger.api.asset.warehouse.request.WarehouseUpdateRequest;
 import com.bantanger.api.asset.warehouse.response.WarehouseResponse;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.model.JsonObject;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.common.model.PageResult;

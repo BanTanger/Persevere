@@ -5,7 +5,7 @@ import com.bantanger.codegen.processor.BaseCodeGenProcessor;
 import com.bantanger.codegen.processor.DefaultNameContext;
 import com.bantanger.codegen.spi.CodeGenProcessor;
 import com.bantanger.codegen.utils.StringUtils;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.model.JsonObject;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.common.model.PageResult;

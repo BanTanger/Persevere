@@ -8,7 +8,7 @@ import com.bantanger.codegen.query.StudentQuery;
 import com.bantanger.codegen.repository.StudentRepository;
 import com.bantanger.codegen.updater.StudentUpdater;
 import com.bantanger.codegen.vo.StudentVO;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.exception.BusinessException;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.jpa.support.EntityOperations;

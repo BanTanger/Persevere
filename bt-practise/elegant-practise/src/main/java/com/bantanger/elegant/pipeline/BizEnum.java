@@ -1,6 +1,6 @@
 package com.bantanger.elegant.pipeline;
 
-import com.bantanger.common.constants.BaseEnum;
+import com.bantanger.common.enums.BaseEnum;
 
 /**
  * @author chensongmin

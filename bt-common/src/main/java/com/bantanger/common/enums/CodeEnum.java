@@ -1,4 +1,4 @@
-package com.bantanger.common.constants;
+package com.bantanger.common.enums;
 
 import java.util.Optional;
 

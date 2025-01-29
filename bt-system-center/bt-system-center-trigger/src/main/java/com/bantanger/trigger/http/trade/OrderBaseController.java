@@ -5,7 +5,7 @@ import com.bantanger.api.trade.order.request.OrderBaseCreateRequest;
 import com.bantanger.api.trade.order.request.OrderBaseQueryRequest;
 import com.bantanger.api.trade.order.request.OrderBaseUpdateRequest;
 import com.bantanger.api.trade.order.response.OrderBaseResponse;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.model.JsonObject;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.common.model.PageResult;

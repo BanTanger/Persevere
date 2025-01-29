@@ -1,4 +1,4 @@
-package com.bantanger.common.enumtype;
+package com.bantanger.common.errortype;
 
 /**
  * @author chensongmin
@@ -6,7 +6,7 @@ package com.bantanger.common.enumtype;
  * @date 2025/1/15
  */
 
-import com.bantanger.common.constants.BaseEnum;
+import com.bantanger.common.enums.BaseEnum;
 import java.util.Optional;
 import lombok.Getter;
 

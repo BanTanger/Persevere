@@ -24,7 +24,7 @@ import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.annotation.TypeConverter;
 import com.bantanger.common.constants.GenSourceConstants;
-import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.domain.asset.record.enums.InOutBizType;
 import com.bantanger.domain.asset.record.enums.InOutBizTypeConverter;
 import com.bantanger.domain.asset.record.enums.InOutType;

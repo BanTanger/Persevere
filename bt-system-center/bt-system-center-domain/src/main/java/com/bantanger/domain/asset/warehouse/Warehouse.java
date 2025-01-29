@@ -6,7 +6,6 @@ package com.bantanger.domain.asset.warehouse;
  * @date 2025/1/22
  */
 import com.bantanger.codegen.processor.api.GenCreateRequest;
-import com.bantanger.codegen.processor.api.GenFeign;
 import com.bantanger.codegen.processor.api.GenQueryRequest;
 import com.bantanger.codegen.processor.api.GenResponse;
 import com.bantanger.codegen.processor.api.GenUpdateRequest;
@@ -23,7 +22,7 @@ import com.bantanger.codegen.processor.updater.GenUpdater;
 import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.constants.GenSourceConstants;
-import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
 import jakarta.persistence.Convert;

@@ -16,7 +16,7 @@ import com.bantanger.codegen.processor.updater.GenUpdater;
 import com.bantanger.codegen.processor.updater.IgnoreUpdater;
 import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
-import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.jpa.converter.ValidStatusConverter;
 import com.bantanger.jpa.support.BaseJpaAggregate;
 import jakarta.persistence.Convert;

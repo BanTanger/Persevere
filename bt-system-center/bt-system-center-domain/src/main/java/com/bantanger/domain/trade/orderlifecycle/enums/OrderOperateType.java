@@ -6,7 +6,7 @@ package com.bantanger.domain.trade.orderlifecycle.enums;
  * @date 2025/1/24
  */
 
-import com.bantanger.common.constants.BaseEnum;
+import com.bantanger.common.enums.BaseEnum;
 import java.util.Optional;
 import lombok.Getter;
 

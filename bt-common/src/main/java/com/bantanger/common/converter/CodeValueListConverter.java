@@ -1,4 +1,4 @@
-package com.bantanger.common.enumtype.converter;
+package com.bantanger.common.converter;
 
 import com.bantanger.common.model.CodeValue;
 import com.fasterxml.jackson.core.type.TypeReference;

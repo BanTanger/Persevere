@@ -1,6 +1,6 @@
 package com.bantanger.elegant.user;
 
-import com.bantanger.common.constants.BaseEnum;
+import com.bantanger.common.enums.BaseEnum;
 
 import java.util.Optional;
 

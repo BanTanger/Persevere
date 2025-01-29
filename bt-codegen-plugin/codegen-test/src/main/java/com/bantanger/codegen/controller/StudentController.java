@@ -11,7 +11,7 @@ import com.bantanger.codegen.response.StudentResponse;
 import com.bantanger.codegen.service.IStudentService;
 import com.bantanger.codegen.updater.StudentUpdater;
 import com.bantanger.codegen.vo.StudentVO;
-import com.bantanger.common.constants.CodeEnum;
+import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.model.JsonObject;
 import com.bantanger.common.model.PageRequestWrapper;
 import com.bantanger.common.model.PageResult;

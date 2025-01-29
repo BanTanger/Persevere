@@ -23,7 +23,7 @@ import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.annotation.TypeConverter;
 import com.bantanger.common.constants.GenSourceConstants;
-import com.bantanger.common.constants.ValidStatus;
+import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.domain.trade.orderlifecycle.enums.OrderOperateType;
 import com.bantanger.domain.trade.orderlifecycle.enums.OrderOperateTypeConverter;
 import com.bantanger.jpa.converter.ValidStatusConverter;

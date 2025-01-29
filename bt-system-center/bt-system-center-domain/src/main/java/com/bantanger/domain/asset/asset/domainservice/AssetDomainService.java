@@ -2,8 +2,7 @@ package com.bantanger.domain.asset.asset.domainservice;
 
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.IdUtil;
-import com.bantanger.common.constants.CodeEnum;
-import com.bantanger.common.enumtype.AssetErrorType;
+import com.bantanger.common.errortype.AssetErrorType;
 import com.bantanger.common.exception.BusinessException;
 import com.bantanger.domain.asset.asset.Asset;
 import com.bantanger.domain.asset.asset.QAsset;

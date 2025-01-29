@@ -21,7 +21,7 @@ public class MessageRecordUpdateRequest implements Request {
    @Schema(
          title = "执行参数"
    )
-   private String executeParams;
+   private String params;
 
    @Schema(
          title = "消息类型"
@@ -51,12 +51,12 @@ public class MessageRecordUpdateRequest implements Request {
       this.messageContent = messageContent;
    }
 
-   public String getExecuteParams() {
-      return executeParams;
+   public String getParams() {
+      return params;
    }
 
-   public void setExecuteParams(String executeParams) {
-      this.executeParams = executeParams;
+   public void setParams(String params) {
+      this.params = params;
    }
 
    public String getMsgType() {

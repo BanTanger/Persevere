@@ -64,3 +64,10 @@ logging:
   level:
     root: info
   config: classpath:logback-spring.xml
+
+bt:
+  message:
+    verifyLength: 6
+    validTime: 5
+    sendInterval: 1
+    sendMaxTimes: 10
