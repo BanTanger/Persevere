@@ -8,6 +8,14 @@
 - [资产领域](bt-system-center/bt-system-center-domain/src/main/java/com/bantanger/domain/asset/资产领域.md)
 - [消息中心](bt-system-center/bt-system-center-domain/src/main/java/com/bantanger/domain/message/消息领域.md)
 
+## 通用学习文章
+
+[ClassLoader学习.md](bt-practise/elegant-practise/ClassLoader学习.md)
+
+[优雅编程.md](bt-practise/elegant-practise/优雅编程.md)
+
+[业务扩展点.md](bt-common-starters/bt-extension-spring-boot-starter/业务扩展点.md)
+
 ## 注意事项
 
 ### 环境版本
