@@ -10,11 +10,10 @@
 
 ## 通用学习文章
 
-[ClassLoader学习.md](bt-practise/elegant-practise/ClassLoader学习.md)
-
-[优雅编程.md](bt-practise/elegant-practise/优雅编程.md)
-
-[业务扩展点.md](bt-common-starters/bt-extension-spring-boot-starter/业务扩展点.md)
+- [ClassLoader学习.md](bt-practise/elegant-practise/ClassLoader学习.md)
+- [优雅编程.md](bt-practise/elegant-practise/优雅编程.md)
+- [业务扩展点.md](bt-common-starters/bt-extension-spring-boot-starter/业务扩展点.md)
+- [统一对象存储协议.md](bt-common-starters/bt-oss-spring-boot-starter/统一对象存储协议.md)
 
 ## 注意事项
 

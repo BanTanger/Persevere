@@ -12,6 +12,7 @@
     <modules>
         <module>bt-jpa-spring-boot-starter</module>
         <module>bt-extension-spring-boot-starter</module>
+        <module>bt-oss-spring-boot-starter</module>
     </modules>
 
     <groupId>com.bantanger</groupId>
