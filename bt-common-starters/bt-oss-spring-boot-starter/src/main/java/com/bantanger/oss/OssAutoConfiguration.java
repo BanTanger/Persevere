@@ -12,6 +12,7 @@ import com.bantanger.oss.config.OssProperties;
 import java.util.Objects;
 import java.util.stream.Stream;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +32,9 @@ public class OssAutoConfiguration {
         return new S3OssClient(amazonS3);
     }
 
+    @Bean
+    @ConditionalOnMissingBean(AmazonS3.class)
+    @ConditionalOnProperty(prefix = "oss", name = "enable", havingValue = "true")
     public AmazonS3 amazonS3(OssProperties ossProperties) {
         long nullSize = Stream.<String>builder()
             .add(ossProperties.getEndpoint())
