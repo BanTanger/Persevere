@@ -7,6 +7,7 @@ import com.bantanger.domain.asset.record.enums.InOutType;
 import com.bantanger.domain.message.record.enums.MsgType;
 import com.bantanger.domain.message.record.enums.NotifyType;
 import com.bantanger.domain.message.template.enums.TemplateType;
+import com.bantanger.domain.permission.resource.ResourceType;
 import com.bantanger.domain.trade.order.enums.OrderState;
 import com.bantanger.domain.trade.order.enums.OrderType;
 import com.bantanger.domain.trade.orderlifecycle.enums.OrderOperateType;
@@ -140,4 +141,11 @@ public class CustomMapper {
         return JSON.toJSONString(map);
     }
 
+    public Integer resourceType2Int(ResourceType resourceType) {
+        return resourceType.getCode();
+    }
+
+    public ResourceType int2ResourceType(Integer code) {
+        return ResourceType.of(code).orElse(null);
+    }
 }

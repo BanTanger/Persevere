@@ -2,7 +2,7 @@ package com.bantanger.domain.trade.reviserecord;
 
 /**
  * @author chensongmin
- * @description
+ * @description 修订订单
  * @date 2025/1/24
  */
 import com.bantanger.codegen.processor.api.GenCreateRequest;
@@ -20,6 +20,7 @@ import com.bantanger.codegen.processor.updater.IgnoreUpdater;
 import com.bantanger.codegen.processor.service.GenServiceImpl;
 import com.bantanger.codegen.processor.updater.GenUpdater;
 import com.bantanger.codegen.processor.vo.GenVo;
+import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.constants.GenSourceConstants;
 import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.jpa.converter.ValidStatusConverter;
@@ -47,6 +48,25 @@ import lombok.Data;
 @Table(name = "revise_record")
 @Data
 public class ReviseRecord extends BaseJpaAggregate {
+
+    @FieldDesc(name = "操作人")
+    private String operateUser;
+
+    @FieldDesc(name = "唯一流水号")
+    private Long flowId;
+
+    @FieldDesc(name = "修订前")
+    private String reviseBefore;
+
+    @FieldDesc(name = "修订后")
+    private String reviseAfter;
+
+    // JSON 格式
+    @FieldDesc(name = "变更点")
+    private String diff;
+
+    @FieldDesc(name = "变更原因")
+    private String reviseReason;
 
     @Convert(converter = ValidStatusConverter.class)
     @IgnoreUpdater
