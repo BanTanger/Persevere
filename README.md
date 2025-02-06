@@ -15,6 +15,7 @@
 - [业务扩展点.md](bt-common-starters/bt-extension-spring-boot-starter/业务扩展点.md)
 - [统一对象存储协议.md](bt-common-starters/bt-oss-spring-boot-starter/统一对象存储协议.md)
 - [如何理解抽象.md](docs/如何理解抽象.md)
+- [交易状态机Demo工程.md](bt-system-center/bt-system-center-app/src/test/java/com/bantanger/test/trade/statemachine/交易状态机Demo工程.md)
 
 ## 注意事项
 
