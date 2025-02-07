@@ -8,6 +8,8 @@ import com.bantanger.domain.message.record.enums.MsgType;
 import com.bantanger.domain.message.record.enums.NotifyType;
 import com.bantanger.domain.message.template.enums.TemplateType;
 import com.bantanger.domain.permission.resource.ResourceType;
+import com.bantanger.domain.template.selectdict.DictType;
+import com.bantanger.domain.template.templateitem.InputType;
 import com.bantanger.domain.trade.order.enums.OrderState;
 import com.bantanger.domain.trade.order.enums.OrderType;
 import com.bantanger.domain.trade.orderlifecycle.enums.OrderOperateType;
@@ -21,22 +23,22 @@ import java.util.Map;
  */
 public class CustomMapper {
 
-//        public Integer type2Int(InputType type) {
-//            return type.getCode();
-//        }
-//
-//        public InputType int2Type(Integer code) {
-//            return InputType.of(code).orElse(InputType.TEXT);
-//        }
-//
-//        public Integer dictType2Int(DictType dictType) {
-//            return dictType.getCode();
-//        }
-//
-//        public DictType int2DictType(Integer code) {
-//            return DictType.of(code).orElse(DictType.SELECT_LIST);
-//        }
-//
+    public Integer type2Int(InputType type) {
+        return type.getCode();
+    }
+
+    public InputType int2Type(Integer code) {
+        return InputType.of(code).orElse(InputType.TEXT);
+    }
+
+    public Integer dictType2Int(DictType dictType) {
+        return dictType.getCode();
+    }
+
+    public DictType int2DictType(Integer code) {
+        return DictType.of(code).orElse(DictType.SELECT_LIST);
+    }
+
 //        public Integer skuType2Int(SkuType skuType) {
 //            return skuType.getCode();
 //        }
@@ -109,35 +111,35 @@ public class CustomMapper {
         return InOutType.of(code).orElse(InOutType.IN);
     }
 
-    public NotifyType int2NoticeType(Integer code){
+    public NotifyType int2NoticeType(Integer code) {
         return NotifyType.of(code).orElse(null);
     }
 
-    public Integer noticeType2Int(NotifyType noticeType){
+    public Integer noticeType2Int(NotifyType noticeType) {
         return noticeType.getCode();
     }
 
-    public MsgType int2MsgTypeEnum(Integer code){
+    public MsgType int2MsgTypeEnum(Integer code) {
         return MsgType.of(code).orElse(null);
     }
 
-    public Integer msgTypeEnum2Int(MsgType msgTypeEnum){
+    public Integer msgTypeEnum2Int(MsgType msgTypeEnum) {
         return msgTypeEnum.getCode();
     }
 
-    public TemplateType int2TemplateType(Integer code){
+    public TemplateType int2TemplateType(Integer code) {
         return TemplateType.of(code).orElse(null);
     }
 
-    public Integer templateType2Int(TemplateType templateType){
+    public Integer templateType2Int(TemplateType templateType) {
         return templateType.getCode();
     }
 
-    public Map<String,Object> string2Map(String str){
+    public Map<String, Object> string2Map(String str) {
         return JSONObject.parseObject(str);
     }
 
-    public String map2String(Map<String,Object> map){
+    public String map2String(Map<String, Object> map) {
         return JSON.toJSONString(map);
     }
 
