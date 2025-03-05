@@ -1,6 +1,7 @@
 package com.bantanger.test.auth;
 
 import cn.hutool.crypto.digest.BCrypt;
+import com.bantanger.Application;
 import com.bantanger.domain.admin.creator.AdminUserCreator;
 import com.bantanger.domain.admin.service.IAdminUserService;
 import jakarta.annotation.Resource;
@@ -15,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @date 2025/2/6
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = Application.class)
 public class AuthTest {
 
     @Resource

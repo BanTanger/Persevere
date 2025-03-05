@@ -14,6 +14,8 @@ thread:
 
 # 数据库配置；启动时配置数据库资源信息
 spring:
+  main: # 全局懒加载配置
+    lazy-initialization: true  #默认false 关闭
   datasource:
     username: root
     password: 123456
@@ -62,7 +64,7 @@ spring:
 # 日志
 logging:
   level:
-    '[net.ttddyy.dsproxy.listener]': debug
+    '[net.ttddyy.dsproxy.listener]': info
     root: info
   config: classpath:logback-spring.xml
 

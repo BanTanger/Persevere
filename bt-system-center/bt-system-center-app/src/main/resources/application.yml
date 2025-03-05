@@ -2,4 +2,4 @@ spring:
   config:
     name: bt-system-center-app
   profiles:
-    active: dev
+    active: test

@@ -26,13 +26,28 @@
 
 jdk17
 
+可 brew install jenv 进行统一 jdk 版本管理（不只是 jdk，mvn 也会切换）
+
+先下载对应版本的 jdk。再通过 jenv add <jdk相关路径> 将 xx 版本 jdk 放在 jenv 统一管理
+
+还可在 zshrc 配置别名，缩短命令
+```shell
+echo 'alias jdk17="jenv global corretto64-17.0.14"' >> ~/.zshrc
+echo 'alias ljdk17="jenv local corretto64-17.0.14"' >> ~/.zshrc
+```
+
+如图所示：
+
+![zshrc配置jenv命令别名效果展示.png](docs/photo/zshrc配置jenv命令别名效果展示.png)
+
 ### 代码生成器
 
 子模块 bt-codegen-plugin 下的 codegen-apt 为代码生成器，使用时请先安装该模块。
 
 ```shell
-mvn clean install -U -e -pl bt-codegen-plugin\codegen-apt
+mvn clean install -U -e -am -pl bt-codegen-plugin\codegen-apt
 ```
+- -am 是自动递归 install codegen-apt 所依赖的 jpa-springboot-start 和 common
 
 ### 代码生成
 

@@ -12,6 +12,44 @@ thread:
         block-queue-size: 5000
         policy: CallerRunsPolicy
 
+spring:
+  main: # 全局懒加载配置
+    lazy-initialization: true  #默认false 关闭
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:system_center;MODE=MYSQL
+    username: root
+    password: 123456
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        generate_statistics: false
+        jdbc:
+          batch_size: 1000
+        order_inserts: true
+        hbm2ddl:
+          auto: update
+# Redis【如需使用请将 enable 置成 true】
+redis:
+  sdk:
+    enabled: false
+    config:
+      host: 127.0.0.1
+      port: 6379
+      pool-size: 10
+      min-idle-size: 5
+      idle-timeout: 30000
+      connect-timeout: 5000
+      retry-attempts: 3
+      retry-interval: 1000
+      ping-interval: 60000
+      keep-alive: true
+
 # 数据库配置
 #spring:
 #  datasource:
@@ -37,5 +75,6 @@ thread:
 # 日志
 logging:
   level:
+    '[net.ttddyy.dsproxy.listener]': debug
     root: info
   config: classpath:logback-spring.xml
