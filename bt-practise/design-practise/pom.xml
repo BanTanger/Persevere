@@ -5,22 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.bantanger</groupId>
-        <artifactId>persevere</artifactId>
+        <artifactId>bt-practise</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.bantanger</groupId>
-    <artifactId>bt-practise</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>elegant-practise</module>
-        <module>jpa-practise</module>
-        <module>lambda-practise</module>
-        <module>transaction-practise</module>
-        <module>design-practise</module>
-    </modules>
+    <artifactId>design-practise</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
