@@ -3,6 +3,7 @@ package com.bantanger.api.message.template.request;
 
 import com.bantanger.common.model.Request;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.lang.Integer;
 import java.lang.String;
 
 @Schema
@@ -25,7 +26,7 @@ public class MessageTemplateCreateRequest implements Request {
    @Schema(
          title = "模板类型"
    )
-   private String templateType;
+   private Integer templateType;
 
    @Schema(
          title = "描述信息"
@@ -56,11 +57,11 @@ public class MessageTemplateCreateRequest implements Request {
       this.template = template;
    }
 
-   public String getTemplateType() {
+   public Integer getTemplateType() {
       return templateType;
    }
 
-   public void setTemplateType(String templateType) {
+   public void setTemplateType(Integer templateType) {
       this.templateType = templateType;
    }
 

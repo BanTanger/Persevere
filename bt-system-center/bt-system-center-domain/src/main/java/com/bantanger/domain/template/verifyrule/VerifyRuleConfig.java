@@ -5,20 +5,21 @@ package com.bantanger.domain.template.verifyrule;
  * @description
  * @date 2025/2/7
  */
+
 import com.bantanger.codegen.processor.api.GenCreateRequest;
 import com.bantanger.codegen.processor.api.GenQueryRequest;
 import com.bantanger.codegen.processor.api.GenResponse;
 import com.bantanger.codegen.processor.api.GenUpdateRequest;
 import com.bantanger.codegen.processor.controller.GenController;
 import com.bantanger.codegen.processor.creator.GenCreator;
+import com.bantanger.codegen.processor.creator.IgnoreCreator;
 import com.bantanger.codegen.processor.mapper.GenMapper;
 import com.bantanger.codegen.processor.query.GenQuery;
 import com.bantanger.codegen.processor.repository.GenRepository;
 import com.bantanger.codegen.processor.service.GenService;
-import com.bantanger.codegen.processor.creator.IgnoreCreator;
-import com.bantanger.codegen.processor.updater.IgnoreUpdater;
 import com.bantanger.codegen.processor.service.GenServiceImpl;
 import com.bantanger.codegen.processor.updater.GenUpdater;
+import com.bantanger.codegen.processor.updater.IgnoreUpdater;
 import com.bantanger.codegen.processor.vo.GenVo;
 import com.bantanger.common.annotation.FieldDesc;
 import com.bantanger.common.constants.GenSourceConstants;
@@ -31,8 +32,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import java.util.List;
 import lombok.Data;
+
+import java.util.List;
 
 @GenVo(pkgName = "com.bantanger.domain.template.verifyrule.vo")
 @GenCreator(pkgName = "com.bantanger.domain.template.verifyrule.creator")
@@ -42,11 +44,11 @@ import lombok.Data;
 @GenServiceImpl(pkgName = "com.bantanger.domain.template.verifyrule.service")
 @GenQuery(pkgName = "com.bantanger.domain.template.verifyrule.query")
 @GenMapper(pkgName = "com.bantanger.domain.template.verifyrule.mapper")
-@GenController(pkgName = "com.bantanger.trigger.http.template", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
-@GenCreateRequest(pkgName = "com.bantanger.api.template.verifyrule.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
-@GenUpdateRequest(pkgName = "com.bantanger.api.template.verifyrule.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
-@GenQueryRequest(pkgName = "com.bantanger.api.template.verifyrule.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
-@GenResponse(pkgName = "com.bantanger.api.template.verifyrule.response", sourcePath = GenSourceConstants.GEN_API_SOURCE)
+@GenController(pkgName = "com.bantanger.trigger.http.template", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE_MAC)
+@GenCreateRequest(pkgName = "com.bantanger.api.template.verifyrule.request", sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC)
+@GenUpdateRequest(pkgName = "com.bantanger.api.template.verifyrule.request", sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC)
+@GenQueryRequest(pkgName = "com.bantanger.api.template.verifyrule.request", sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC)
+@GenResponse(pkgName = "com.bantanger.api.template.verifyrule.response", sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC)
 //@GenFeign(pkgName = "com.bantanger.api.template.verifyrule.api.service",sourcePath = GenSourceConstants.GEN_API_SOURCE,serverName =)
 @Entity
 @Table(name = "verify_rule_config")

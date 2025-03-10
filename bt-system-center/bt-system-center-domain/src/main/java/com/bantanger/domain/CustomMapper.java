@@ -8,12 +8,15 @@ import com.bantanger.domain.message.record.enums.MsgType;
 import com.bantanger.domain.message.record.enums.NotifyType;
 import com.bantanger.domain.message.template.enums.TemplateType;
 import com.bantanger.domain.permission.resource.ResourceType;
+import com.bantanger.domain.stock.seat.enums.SeatStockStatus;
+import com.bantanger.domain.stock.seat.enums.SeatType;
 import com.bantanger.domain.template.selectdict.DictType;
 import com.bantanger.domain.template.templateitem.InputType;
 import com.bantanger.domain.trade.order.enums.OrderState;
 import com.bantanger.domain.trade.order.enums.OrderType;
 import com.bantanger.domain.trade.orderlifecycle.enums.OrderOperateType;
 import com.bantanger.domain.user.AccountType;
+
 import java.util.Map;
 
 /**
@@ -149,5 +152,21 @@ public class CustomMapper {
 
     public ResourceType int2ResourceType(Integer code) {
         return ResourceType.of(code).orElse(null);
+    }
+
+    public Integer SeatType2Int(SeatType seatType) {
+        return seatType.getCode();
+    }
+
+    public SeatType int2SeatType(Integer code) {
+        return SeatType.of(code).orElse(SeatType.SEAT_NORMAL);
+    }
+
+    public Integer seatStockStatus2Int(SeatStockStatus seatStockStatus) {
+        return seatStockStatus.getCode();
+    }
+
+    public SeatStockStatus int2SeatStockStatus(Integer code) {
+        return SeatStockStatus.of(code).orElse(null);
     }
 }

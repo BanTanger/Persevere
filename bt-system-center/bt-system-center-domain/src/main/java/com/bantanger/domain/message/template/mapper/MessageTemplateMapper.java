@@ -7,6 +7,7 @@ import com.bantanger.api.message.template.request.MessageTemplateUpdateRequest;
 import com.bantanger.api.message.template.response.MessageTemplateResponse;
 import com.bantanger.common.mapper.DateMapper;
 import com.bantanger.common.mapper.GenericEnumMapper;
+import com.bantanger.domain.CustomMapper;
 import com.bantanger.domain.message.template.MessageTemplate;
 import com.bantanger.domain.message.template.creator.MessageTemplateCreator;
 import com.bantanger.domain.message.template.query.MessageTemplateQuery;
@@ -16,10 +17,11 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(
-      uses = {
-            GenericEnumMapper.class,
-            DateMapper.class
-      }
+        uses = {
+                GenericEnumMapper.class,
+                DateMapper.class,
+                CustomMapper.class
+        }
 )
 public interface MessageTemplateMapper {
    MessageTemplateMapper INSTANCE = Mappers.getMapper(MessageTemplateMapper.class);

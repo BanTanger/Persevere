@@ -1,4 +1,4 @@
-package com.bantanger.infrastructure.adapter.repository.facade;
+package com.bantanger.infrastructure.adapter.facade;
 
 import cn.hutool.core.util.IdUtil;
 import com.bantanger.domain.trade.order.repository.IFlowNoFacade;

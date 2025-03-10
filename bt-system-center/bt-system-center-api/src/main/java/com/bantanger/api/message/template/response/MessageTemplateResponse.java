@@ -4,6 +4,7 @@ package com.bantanger.api.message.template.response;
 import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.common.model.AbstractJpaResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.lang.Integer;
 import java.lang.String;
 
 @Schema
@@ -26,7 +27,7 @@ public class MessageTemplateResponse extends AbstractJpaResponse {
    @Schema(
          title = "模板类型"
    )
-   private String templateType;
+   private Integer templateType;
 
    @Schema(
          title = "描述信息"
@@ -62,11 +63,11 @@ public class MessageTemplateResponse extends AbstractJpaResponse {
       this.template = template;
    }
 
-   public String getTemplateType() {
+   public Integer getTemplateType() {
       return templateType;
    }
 
-   public void setTemplateType(String templateType) {
+   public void setTemplateType(Integer templateType) {
       this.templateType = templateType;
    }
 

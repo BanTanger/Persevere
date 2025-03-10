@@ -33,6 +33,7 @@
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <vavr.version>0.10.3</vavr.version>
         <datasource.proxy.version>1.10.0</datasource.proxy.version>
+        <rocketmq.version>2.3.0</rocketmq.version>
     </properties>
 
     <dependencies>
@@ -84,6 +85,11 @@
             <groupId>com.github.gavlyukovskiy</groupId>
             <artifactId>datasource-proxy-spring-boot-starter</artifactId>
             <version>${datasource.proxy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>${rocketmq.version}</version>
         </dependency>
     </dependencies>
 

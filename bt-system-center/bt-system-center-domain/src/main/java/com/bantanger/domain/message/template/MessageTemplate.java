@@ -42,12 +42,12 @@ import lombok.Data;
 @GenServiceImpl(pkgName = "com.bantanger.domain.message.template.service")
 @GenQuery(pkgName = "com.bantanger.domain.message.template.query")
 @GenMapper(pkgName = "com.bantanger.domain.message.template.mapper")
-@GenController(pkgName = "com.bantanger.trigger.http.message", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE)
-@GenCreateRequest(pkgName = "com.bantanger.api.message.template.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
-@GenUpdateRequest(pkgName = "com.bantanger.api.message.template.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
-@GenQueryRequest(pkgName = "com.bantanger.api.message.template.request", sourcePath = GenSourceConstants.GEN_API_SOURCE)
-@GenResponse(pkgName = "com.bantanger.api.message.template.response", sourcePath = GenSourceConstants.GEN_API_SOURCE)
-//@GenFeign(pkgName = "com.bantanger.api.message.template.api.service",sourcePath = GenSourceConstants.GEN_API_SOURCE,serverName =)
+@GenController(pkgName = "com.bantanger.trigger.http.message", sourcePath = GenSourceConstants.GEN_CONTROLLER_SOURCE_MAC)
+@GenCreateRequest(pkgName = "com.bantanger.api.message.template.request", sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC)
+@GenUpdateRequest(pkgName = "com.bantanger.api.message.template.request", sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC)
+@GenQueryRequest(pkgName = "com.bantanger.api.message.template.request", sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC)
+@GenResponse(pkgName = "com.bantanger.api.message.template.response", sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC)
+//@GenFeign(pkgName = "com.bantanger.api.message.template.api.service",sourcePath = GenSourceConstants.GEN_API_SOURCE_MAC,serverName =)
 @Entity
 @Table(name = "message_template")
 @Data

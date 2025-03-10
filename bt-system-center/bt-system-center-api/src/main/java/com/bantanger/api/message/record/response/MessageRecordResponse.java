@@ -4,6 +4,7 @@ package com.bantanger.api.message.record.response;
 import com.bantanger.common.enums.ValidStatus;
 import com.bantanger.common.model.AbstractJpaResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.lang.Integer;
 import java.lang.String;
 
 @Schema
@@ -26,12 +27,12 @@ public class MessageRecordResponse extends AbstractJpaResponse {
    @Schema(
          title = "消息类型"
    )
-   private String msgType;
+   private Integer msgType;
 
    @Schema(
          title = "通知类型"
    )
-   private String notifyType;
+   private Integer notifyType;
 
    @Schema(
          title = "validStatus"
@@ -62,19 +63,19 @@ public class MessageRecordResponse extends AbstractJpaResponse {
       this.params = params;
    }
 
-   public String getMsgType() {
+   public Integer getMsgType() {
       return msgType;
    }
 
-   public void setMsgType(String msgType) {
+   public void setMsgType(Integer msgType) {
       this.msgType = msgType;
    }
 
-   public String getNotifyType() {
+   public Integer getNotifyType() {
       return notifyType;
    }
 
-   public void setNotifyType(String notifyType) {
+   public void setNotifyType(Integer notifyType) {
       this.notifyType = notifyType;
    }
 
