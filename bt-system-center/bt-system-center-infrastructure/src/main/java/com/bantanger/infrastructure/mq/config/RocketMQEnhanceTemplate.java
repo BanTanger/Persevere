@@ -1,6 +1,7 @@
 package com.bantanger.infrastructure.mq.config;
 
 import com.alibaba.fastjson.JSONObject;
+import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.util.StringUtils;
-
-import javax.annotation.Resource;
 
 /**
  * @author chensongmin
