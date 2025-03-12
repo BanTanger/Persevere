@@ -69,20 +69,27 @@ rocketmq:
     # 是否在内部发送失败时重试另一个broker，默认false
     retryNextServer: false
 
-# Redis【如需使用请打开】
-redis:
-  sdk:
-    config:
-      host: 127.0.0.1
-      port: 6379
-      pool-size: 10
-      min-idle-size: 5
-      idle-timeout: 30000
-      connect-timeout: 5000
-      retry-attempts: 3
-      retry-interval: 1000
-      ping-interval: 60000
-      keep-alive: true
+# redisson配置
+redisson:
+  # 如果该值为false，系统将不会创建RedissionClient的bean。
+  enabled: true
+  # mode的可用值为，single/cluster/sentinel/master-slave
+  mode: single
+  # single: 单机模式
+  #   address: redis://localhost:6379
+  # cluster: 集群模式
+  #   每个节点逗号分隔，同时每个节点前必须以redis://开头。
+  #   address: redis://localhost:6379,redis://localhost:6378,...
+  # sentinel:
+  #   每个节点逗号分隔，同时每个节点前必须以redis://开头。
+  #   address: redis://localhost:6379,redis://localhost:6378,...
+  # master-slave:
+  #   每个节点逗号分隔，第一个为主节点，其余为从节点。同时每个节点前必须以redis://开头。
+  #   address: redis://localhost:6379,redis://localhost:6378,...
+  address: redis://127.0.0.1:6001
+  # redis 密码，空可以不填。
+  password:
+  database: 0
 
 # MyBatis 配置【如需使用记得打开】
 #mybatis:
