@@ -60,7 +60,7 @@ public class Book {
 
     @FunctionalInterface
     public interface AddPublicationDate {
-        Book buildWithPublicationDate(LocalDate publicationDate);
+        Book build(LocalDate publicationDate);
     }
 
 }
