@@ -7,15 +7,16 @@ package com.bantanger.common.errortype;
  */
 
 import com.bantanger.common.enums.BaseEnum;
-import java.util.Optional;
 import lombok.Getter;
+
+import java.util.Optional;
 
 @Getter
 public enum MessageErrorType implements BaseEnum<MessageErrorType> {
 
-    TEMPLATE_NOT_FOUND(1, "模板不存在"),
-    PARAMS_ERROR(2, "参数错误"),
-    MESSAGE_SEND_FAST(3, "消息发送过于频繁"),
+    TEMPLATE_NOT_FOUND(1101001, "模板不存在"),
+    PARAMS_ERROR(1101002, "参数错误"),
+    MESSAGE_SEND_FAST(1101003, "消息发送过于频繁"),
 
     ;
 
