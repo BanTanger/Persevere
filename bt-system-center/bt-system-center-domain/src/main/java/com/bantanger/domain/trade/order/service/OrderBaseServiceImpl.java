@@ -3,9 +3,13 @@ package com.bantanger.domain.trade.order.service;
 
 import com.bantanger.common.enums.CodeEnum;
 import com.bantanger.common.exception.BusinessException;
+import com.bantanger.common.model.EnumVo;
+import com.bantanger.common.model.JsonObject;
 import com.bantanger.common.model.PageRequestWrapper;
+import com.bantanger.common.utils.EnumDictUtils;
 import com.bantanger.domain.trade.order.OrderBase;
 import com.bantanger.domain.trade.order.creator.OrderBaseCreator;
+import com.bantanger.domain.trade.order.enums.OrderState;
 import com.bantanger.domain.trade.order.mapper.OrderBaseMapper;
 import com.bantanger.domain.trade.order.query.OrderBaseQuery;
 import com.bantanger.domain.trade.order.repository.OrderBaseRepository;
@@ -13,8 +17,6 @@ import com.bantanger.domain.trade.order.updater.OrderBaseUpdater;
 import com.bantanger.domain.trade.order.vo.OrderBaseVO;
 import com.bantanger.jpa.support.EntityOperations;
 import com.querydsl.core.BooleanBuilder;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -23,6 +25,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Transactional
 @Service
@@ -96,5 +103,10 @@ public class OrderBaseServiceImpl implements IOrderBaseService {
               Sort.by(Sort.Direction.DESC, "createdAt")));
       return new PageImpl<>(page.getContent().stream().map(OrderBaseVO::new)
               .collect(Collectors.toList()), page.getPageable(), page.getTotalElements());
+   }
+
+   @GetMapping(value = "orderState")
+   public JsonObject<List<EnumVo>> orderState() {
+       return JsonObject.success(EnumDictUtils.getEnumDictVo(OrderState.class));
    }
 }

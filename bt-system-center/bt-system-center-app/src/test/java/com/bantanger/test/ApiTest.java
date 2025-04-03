@@ -8,12 +8,13 @@ import com.bantanger.domain.trade.order.enums.OrderType;
 import com.bantanger.domain.trade.order.repository.OrderBaseRepository;
 import com.bantanger.domain.user.AccountType;
 import jakarta.annotation.Resource;
-import java.math.BigDecimal;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.math.BigDecimal;
 
 @Slf4j
 @RunWith(SpringRunner.class)
