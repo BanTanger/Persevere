@@ -7,7 +7,7 @@
 - [支付领域](bt-system-center/bt-system-center-domain/src/main/java/com/bantanger/domain/pay/支付领域.md)
 - [资产领域](bt-system-center/bt-system-center-domain/src/main/java/com/bantanger/domain/asset/资产领域.md)
 - [消息中心](bt-system-center/bt-system-center-domain/src/main/java/com/bantanger/domain/message/消息领域.md)
-- [模板领域.md](bt-system-center/bt-system-center-domain/src/main/java/com/bantanger/domain/template/模板领域.md)
+- [模板领域](bt-system-center/bt-system-center-domain/src/main/java/com/bantanger/domain/template/模板领域.md)
 
 ## 通用学习文章
 
